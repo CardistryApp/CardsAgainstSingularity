@@ -27,10 +27,10 @@ I expect to see _many_ multiple commits per contributor per day, and everyone sh
 
 #### The Checklist
 
-* [ ] Github Organization
-  * [ ] Invited everyone?
-  * [ ] Everyone accepted?
-  * [ ] Everyone forked?
+* [X] Github Organization
+  * [X] Invited everyone?
+  * [X] Everyone accepted?
+  * [X] Everyone forked?
 * [ ] User Stories
   * [ ] Written?
   * [ ] Reviewed?
