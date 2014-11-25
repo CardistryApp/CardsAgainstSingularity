@@ -55,3 +55,6 @@ I expect to see _many_ multiple commits per contributor per day, and everyone sh
   * [ ] Mid-term release?
   * [ ] Final release?
   * [ ] Bugfixes?
+  * 
+  * [x]
+  * [ ]
