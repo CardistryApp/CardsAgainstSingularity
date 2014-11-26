@@ -4,6 +4,7 @@
 
 ESTIMATE: 13
 I can create a room so that I can invite people to play. 
+	
 	* Where is this room created?
 	* How do you get to the creation button?
 	* How is this room different than any other room? (unique string in URL)
@@ -12,6 +13,7 @@ I can create a room so that I can invite people to play.
 
 ESTIMATE: 5
 I can draw 10 cards so that I can play
+	
 	* How do I receive the cards?
 	* What do the cards look like?
 	* How can I do with the cards?
@@ -22,6 +24,7 @@ I can draw 10 cards so that I can play
 
 ESTIMATE: 20
 I can send cards from my hand to the board so that I can complete my turn.
+	
 	* How do I send them to the board? (physically)
 		* swipe up
 	* What does this look like?
@@ -32,12 +35,14 @@ I can send cards from my hand to the board so that I can complete my turn.
 
 ESTIMATE: 2
 I can look through my hand of cards so that I can choose the card I want.
+	
 	* How do I look through my hand?
 	* What do the transitions look like?
 	* How do I know that my cards are different than the other players' cards?
 
 ESTIMATE: 8
 I can automamtically recieve a card after my turn so that I can always have a full hand.
+	
 	* How will I receive these cards?
 	* How will I know I've received a card?
 		* haptic feedback or a notification
@@ -46,6 +51,7 @@ I can automamtically recieve a card after my turn so that I can always have a fu
 
 ESTIMATE: 3
 I can see my score so I can keep track of who's winning.
+	
 	* What does the score look like?
 	* Where can I see the score?
 	* Can I see the other players' score?
@@ -54,6 +60,7 @@ I can see my score so I can keep track of who's winning.
 
 ESTIMATE: 8
 I can see an overlay once I've played a card so that I can't play multiple cards on a single turn.
+	
 	* What does this overlay look like?
 	* How is this overlay applied?
 	* When does this overlay appear?
@@ -64,6 +71,7 @@ I can see an overlay once I've played a card so that I can't play multiple cards
 
 ESTIMATE: 3
 I can accept a link to a room so that I can join a room.
+	
 	* How does this link look? (URL)
 	* How will I get this link?
 	* What is the first thing I see after I click this link?
@@ -74,12 +82,14 @@ I can accept a link to a room so that I can join a room.
 
 ESTIMATE: 5
 I can send a link so that my friends can join my room.
+	
 	* How does this work?
 	* What services can I use to send the link?
 		* Text message, Email, Airdrop, any way you can send text between devices	
 
 ESTIMATE: 8
 I can log into the room with my tablet so that I can create the board.
+	
 	* How does a tablet with no data connection receive the link?
 		* must have a network connection to play this game
 		* link can be received as Text message, Email, Airdrop, any way you can send text between devices
@@ -90,6 +100,7 @@ I can log into the room with my tablet so that I can create the board.
 
 ESTIMATE: 8
 The game organizer will be the first dealer so the board can keep track of who's next.
+	
 	* How does the game know who the organizer is?
 	* How does the game know who is next?
 		* Cycles through the NG-repeat created players. When it reaches the end of the list, it starts at the top of the list again.
@@ -98,6 +109,7 @@ The game organizer will be the first dealer so the board can keep track of who's
 
 ESTIMATE: 8
 The dealer's hand view will have an overlay that says dealer & blocks their cards so that the dealer does not play a card
+	
 	* What does this overlay look like?
 	* How is this overlay applied?
 	* When does this overlay appear?
@@ -105,6 +117,7 @@ The dealer's hand view will have an overlay that says dealer & blocks their card
 
 ESTIMATE: 8
 The dealer can flip the cards once all active players have submitted their card so that they can choose the winner
+	
 	* How does the game know all of the active players have submitted their cards?
 		* Flip button functionality will not work unless the number of submitted cards === number of players - 1.
 	* How does the dealer choose the winner?
@@ -114,6 +127,7 @@ The dealer can flip the cards once all active players have submitted their card 
 
 ESTIMATE: 5
 Dealer status will change to the next player so that everyone gets to be dealer
+	
 	* How does this look?
 	* How is this enforced?
 	* How does the next dealer know they are now the dealer?
@@ -124,6 +138,7 @@ Dealer status will change to the next player so that everyone gets to be dealer
 
 ESTIMATE: 13
 Board will display the card submitted by players so that it can keep track of the status of the turn
+	
 	* How is this displayed?
 	* Where is this displayed?
 		* On the 'board' route
@@ -131,6 +146,7 @@ Board will display the card submitted by players so that it can keep track of th
 
 ESTIMATE: 8
 Board will clear the cards once winner is selected and apply the points to that player's score so that the next turn is ready to begin
+	
 	* How does the board clearing look?
 	* How are points applied?
 	* Where are points applied?
@@ -139,6 +155,7 @@ Board will clear the cards once winner is selected and apply the points to that 
 
 ESTIMATE: 13
 Board will end the game once any player reaches a score of 10 so that there is an endgame
+	
 	* What does endgame look like?
 	* What happens to the board when endgame?
 	* When is endgame?
@@ -148,6 +165,7 @@ Board will end the game once any player reaches a score of 10 so that there is a
 
 ESTIMATE: 8
 Board displays score of all players so that you can see who's winning
+	
 	* What does this look like?
 	* Where are the scores located on the board?
 	* How does the score update?
