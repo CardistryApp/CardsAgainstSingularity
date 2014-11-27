@@ -3,9 +3,7 @@
 ###Player
 
 
-I can create a room so that I can invite people to play. 
-
-ESTIMATE: 13
+#### I can create a room so that I can invite people to play (13)
 
 * Where is this room created?
 * How do you get to the creation button?
@@ -14,9 +12,7 @@ ESTIMATE: 13
 * How do I know when people have joined the room?
 
 
-I can draw 10 cards so that I can play
-
-ESTIMATE: 5
+#### I can draw 10 cards so that I can play(5)
 
 * How do I receive the cards?
 * What do the cards look like?
