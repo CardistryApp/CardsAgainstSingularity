@@ -230,53 +230,94 @@
 
 ### Dealer
 
-####The game organizer will be the first dealer so the board can keep track of who's next.
 
-ESTIMATE: 8	
+####I can always be the First Player so that the game can keep track of who is next. (8)
 
-* How does the game know who the organizer is?
+
+* How does the game know who the dealer is?
+
 * How does the game know who is next?
 	* Cycles through the NG-repeat created players. When it reaches the end of the list, it starts at the top of the list again.
+
 * How does the next dealer know they are now the dealer?
 	* UI element on the hand display that will denote dealer (see next story)
 
 
-####The dealer's hand view will have an overlay that says dealer & blocks their cards so that the dealer does not play a card
+####I can know that I am the dealer so that I don't try to sumbit a card. (8)
 
-ESTIMATE: 8
+	
+* How will I know I am the dealer?
+
+	* My hand display will have an overlay on it that reads 'Dealer' or other text/image.
+	* My submit/swipe feature will be disabled.
+
 	
 * What does this overlay look like?
+
+	* a color over display to blur out game background.
+
 * How is this overlay applied?
+
+	* via a class given when it is my turn.
+
 * When does this overlay appear?
+
+	* When its my turn to be the dealer.
+
 * How does this overlay prevent me from playing my cards.
 
-
-####The dealer can flip the cards once all active players have submitted their card so that they can choose the winner
-
-ESTIMATE: 8
-	
-* How does the game know all of the active players have submitted their cards?
-	* Flip button functionality will not work unless the number of submitted cards === number of players - 1.
-* How does the dealer choose the winner?
-	* tapping the card
-* What happens after the dealer chooses the winner?
-	* The question card (black) will slide to the side of the screen with the winning player's name
+	* Blurs out my background and disabled my submit/swipe function.
 
 
-####Dealer status will change to the next player so that everyone gets to be dealer
+####I can select the cards once all active players have submitted their card so that they can choose the card I want to be the winning card. (8)
 
-ESTIMATE: 5
-	
+* How can I see all the cards submitted?
+
+	*I can tap the "flip cards" button on the board display.
+
+* What happens when I touch the "flip cards" button?
+
+	* The cards on the board display will show the text side of the card
+
 * How does this look?
-* How is this enforced?
+
+	* Looks like a circle that reads 'flip cards'. Has a transition effect of flip.
+	
+* How do I know that all of the active players have submitted their cards?
+
+	* Flip button functionality will not work unless the number of submitted cards === number of players - 1.
+
+* How can I choose the winning card?
+
+	* tapping the card on the display board.
+
+* What happens after the dealer taps the card?
+
+	* The point will be applied to the owner of that card submission.
+	* The card will flip over
+
+
+####My status will change to the next player so that everyone gets to be dealer (5)
+
+	
+* How does my dealer status change?
+
+	* The "Dealer" class/limitations are removed.
+
+* How does the next player become the dealer?
+
+	* The "Dealer" class/limitations are added to the player.
+
 * How does the next dealer know they are now the dealer?
-	* UI element on the hand display that will denote dealer
+
+	* UI element on the hand display that will denote dealer.
+
+
+
+
 
 
 ### Board
-
-
-
 
 ####Board will clear the cards once winner is selected and apply the points to that player's score so that the next turn is ready to begin
 
