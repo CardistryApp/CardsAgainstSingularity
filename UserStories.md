@@ -1,4 +1,4 @@
-#User Stories PLAYER, ADMIN USER
+#User Stories PLAYER, ADMIN, DEALER
 
 ###Player
 
@@ -42,22 +42,35 @@
 
 * How do I receive the cards?
 
+	* Automatically upon selecting 'Start'.
+
+* How will I know I recieved a card?
+
+	* haptic feedback or a notification
+
 * What do the cards look like?
 
+	* Rectacngular shaped with letters/text on it. (SVG Graphic)
+
 * How can I do with the cards?
-		* swipe through hand
+
+		* swipe through all my cards
 		* submit card to board
 
 * What happens when I need more cards?
 
 		* game will automatically check that all players have 10 cards after their turn
 
+* How many cards should I have at a time?
+
+	* 10 at the beginning of the turn, 9 at the end of the turn unless you are the dealer.
+
 
 ####I can display the card I submitted so that all players, including myself can keep track of the status of the turn (13)	
 
 * How is this (the card) displayed?
 
-	*
+	* Displayed as a rectangular shape with text/ letters on it. (SVG Graphic)
 
 * Where is this displayed?
 
@@ -68,94 +81,89 @@
 	*
 
 
-####Board displays score of all players so that you can see who's winning
+####I can see the score of all players so that I can see who has the highest score. (8)
 
-ESTIMATE: 8
 	
 * What does this look like?
-* Where are the scores located on the board?
+
+	*  A counter with numbers
+
+* Where are the scores located?
+
+	* On the board
+
 * How does the score update?
-* How does the board know when to update the score?
+
+	* by adding points to the cards owner at the end of a game round.
+
+* When does my score update?
+
+	* When the dealer selects a card after every player has submitted a card.
+
 * How does the board know to display the proper score with the proper player?
 
+	*
+
+* Can I see the other players' score?
+
+	* Yes. On the board display
 
 
+####I can submit a card so that I can complete my turn. (20)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-####I can send cards from my hand to the board so that I can complete my turn.
-
-ESTIMATE: 20
 
 * How do I send them to the board? (physically)
-	* swipe up
+
+	* touch screen - swipe up
+
 * What does this look like?
+
+	*
+
 * How do I know my card made it to the board?
+
 	* Give me the ocular proof, Iago
-* How do I know its the right card that was sent to the board?
+
+* How do I know my card matched the card that shows up on the board?
+
 	* using the card ID from the JSON file
 
 
-####I can look through my hand of cards so that I can choose the card I want.
+####I can look through my cards so that I can choose the card I want. (2)
 
-ESTIMATE: 2
 
-* How do I look through my hand?
+* How do I look through my cards?
+
+	* From my hand display.
+
 * What do the transitions look like?
+
+	*Swipe (left/right) Animation
+
 * How do I know that my cards are different than the other players' cards?
 
-
-####I can automamtically recieve a card after my turn so that I can always have a full hand.
-
-ESTIMATE: 8
-
-* How will I receive these cards?
-* How will I know I've received a card?
-	* haptic feedback or a notification
-* How many cards should I have at a time?
-	* 10 at the beginning of the turn, 9 at the end of the turn unless you are the dealer
+	* 
 
 
-####I can see my score so I can keep track of who's winning.
 
-ESTIMATE: 3
+####I can know that I submitted a card so that I don't submit 2 cards on one turn. (8)
+
 	
-* What does the score look like?
-* Where can I see the score?
-* Can I see the other players' score?
-* How does my score update?
-* When does my score update?
+* How will I know?
 
+	* My hand display will have an overlay on it that reads 'waiting' or other text/image.
 
-####I can see an overlay once I've played a card so that I can't play multiple cards on a single turn.
+* How does this look?
 
-ESTIMATE: 8
-	
-* What does this overlay look like?
-* How is this overlay applied?
+	* This looks like the game view is faded out in the background and a color is overlayed with text or image.
+
 * When does this overlay appear?
+
+	* When player has submited a card via swipe.
+
 * How does this overlay prevent me from playing another card.
+
+	*Overlay disables the players view and card submission capabilities/function.
 
 
 ###Admin
