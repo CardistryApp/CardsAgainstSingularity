@@ -1,6 +1,7 @@
 #User Stories PLAYER, ADMIN, DEALER
 
 ###Player
+<!--Recieve link, Accept Link, Reject a link, View the lobby, View the Game Room, View Other Players in Room, View all scores, Leave the Room-->
 
 ####I can recieve a link to join a room so that I can play the game. (3)
 	
@@ -16,6 +17,9 @@
 
 	* Game room lobby
 
+* What if I dont wnat to join the room?
+
+	* Don't accept (click) on the link.
 
 
 ####I can let other players know when I am ready to play so that the game can start.
@@ -64,6 +68,10 @@
 * How many cards should I have at a time?
 
 	* 10 at the beginning of the turn, 9 at the end of the turn unless you are the dealer.
+
+* How can I leave a room?
+
+	*
 
 
 ####I can display the card I submitted so that all players, including myself can keep track of the status of the turn (13)	
@@ -149,9 +157,16 @@
 ####I can know that I submitted a card so that I don't submit 2 cards on one turn. (8)
 
 	
-* How will I know?
+* How will I know when I submitted a card?
 
 	* My hand display will have an overlay on it that reads 'waiting' or other text/image.
+	* The board display will show the card you submitted.
+
+* What if I submitted the wrong card?
+
+	*
+	*
+
 
 * How does this look?
 
@@ -167,7 +182,7 @@
 
 
 ###Admin
-
+<!--Create Room, Enter Room, Invite Others, Play Game-->
 
 ####I can create a room so that I can invite people to play. (13)
 
@@ -178,24 +193,39 @@
 * How do I know when people have joined the room?
 
 
-<!-- STRETCH GOAL -->
-<!-- I can choose a background so that I can customize my game board. -->
+####I can enter the room so that I can create the board. (8)
 
-####I can send a link so that my friends can join my room. (5)
+* How do I enter the room?
 
-* How does this work?
-* What services can I use to send the link?
-	* Text message, Email, Airdrop, any way you can send text between devices	
+	*Log in
 
+* How does this look?
 
-####I can log into the room with my tablet so that I can create the board.
+* Where do I log in?
 
-ESTIMATE: 8
+	* Game Lobby
+
+* How do I log in?
 
 * How does a tablet with no data connection receive the link?
 	* must have a network connection to play this game
 	* link can be received as Text message, Email, Airdrop, any way you can send text between devices
+
 * What does the game lobby look like on a tablet?
+
+
+####I can send a link so that I can invite others to join the room and let them know I am ready to 'Start' the game. (5)
+
+* How does this work?
+
+* How does this look?
+
+* What services can I use to send the link?
+	* Text message, Email, Airdrop, any way you can send text between devices	
+
+
+<!-- STRETCH GOAL -->
+<!-- I can choose a background so that I can customize my game board. -->
 
 
 ### Dealer
