@@ -1,17 +1,18 @@
-#User Stories PLAYER, ADMIN, DEALER
+#User Stories (Player, Admin & Dealer)
 
 ###Player
 <!--Recieve link, Accept Link, Reject a link, View the lobby, View the Game Room, View Other Players in Room, View all scores, Leave the Room-->
 
 ####I can recieve a link to join a room so that I can play the game. (3)
 	
-* How does this link look? (URL)
+* How does this link look?
 
-	*
+	* Like a URL link
 
 * How will I get this link?
 
-	*
+	* Email, text
+
 
 * What is the first thing I see after I click this link?
 
@@ -26,7 +27,7 @@
 
 * How can I do this?
 
-		*Press the 'Start' button
+		* Press the 'Start' button
 
 * How does this look?
 
@@ -73,6 +74,11 @@
 
 	*
 
+* When do I know when game ends? 
+
+	* When any player reaches a total of 10 points.
+
+
 
 ####I can display the card I submitted so that all players, including myself can keep track of the status of the turn (13)	
 
@@ -112,10 +118,6 @@
 
 	*
 
-* Can I see the other players' score?
-
-	* Yes. On the board display
-
 
 ####I can submit a card so that I can complete my turn. (20)
 
@@ -146,7 +148,7 @@
 
 * What do the transitions look like?
 
-	*Swipe (left/right) Animation
+	* Swipe (left/right) Animation
 
 * How do I know that my cards are different than the other players' cards?
 
@@ -178,7 +180,7 @@
 
 * How does this overlay prevent me from playing another card.
 
-	*Overlay disables the players view and card submission capabilities/function.
+	* Overlay disables the players view and card submission capabilities/function.
 
 
 ###Admin
@@ -208,6 +210,7 @@
 * How do I log in?
 
 * How does a tablet with no data connection receive the link?
+
 	* must have a network connection to play this game
 	* link can be received as Text message, Email, Airdrop, any way you can send text between devices
 
@@ -229,6 +232,7 @@
 
 
 ### Dealer
+<!--Join Game, See Board, Flip Cards, Choose Card-->
 
 
 ####I can always be the First Player so that the game can keep track of who is next. (8)
@@ -273,7 +277,7 @@
 
 * How can I see all the cards submitted?
 
-	*I can tap the "flip cards" button on the board display.
+	* I can tap the "flip cards" button on the board display.
 
 * What happens when I touch the "flip cards" button?
 
@@ -291,15 +295,16 @@
 
 	* tapping the card on the display board.
 
-* What happens after the dealer taps the card?
+* What happens after I select the winning card?
 
 	* The point will be applied to the owner of that card submission.
 	* The card will flip over
+	* Board will clear
+	* Game will initialize a new game start.
 
 
-####My status will change to the next player so that everyone gets to be dealer (5)
+####My status will change to the next player so that everyone gets to be the dealer (5)
 
-	
 * How does my dealer status change?
 
 	* The "Dealer" class/limitations are removed.
@@ -313,33 +318,6 @@
 	* UI element on the hand display that will denote dealer.
 
 
-
-
-
-
-### Board
-
-####Board will clear the cards once winner is selected and apply the points to that player's score so that the next turn is ready to begin
-
-ESTIMATE: 8
-	
-* How does the board clearing look?
-* How are points applied?
-* Where are points applied?
-* How does the board know its ready for a new turn?
-* How does the board know which player to apply the points to?
-
-
-####Board will end the game once any player reaches a score of 10 so that there is an endgame
-
-ESTIMATE: 13
-	
-* What does endgame look like?
-	* What happens to the board when endgame?
-	* When is endgame?
-		* After the first player receives 10pts
-	* How is a new game started?
-	* How do I know the game is over? 
 
 
 
