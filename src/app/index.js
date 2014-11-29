@@ -23,6 +23,11 @@ angular.module('cardistry', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 
       	templateUrl: "app/partials/lobby-invite.html",
       	controller: 'MainCtrl'
       })
+      .state('player', {
+      	url: '/player',
+      	templateUrl: 'app/partials/player.html',
+      	controller: 'MainCtrl'
+      })
 
     $urlRouterProvider.otherwise('/');
   })
