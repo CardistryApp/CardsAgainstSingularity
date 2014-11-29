@@ -1,4 +1,4 @@
-#User Stories
+#User Stories (Player, Admin & Dealer)
 
 ###Player
 <!--Recieve link, Accept Link, Reject a link, View the lobby, View the Game Room, View Other Players in Room, View all scores, Leave the Room-->
