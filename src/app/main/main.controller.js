@@ -19,16 +19,3 @@ angular.module('cardistry')
   		$scope.phoneNum = ''
   	};
   })
-  .controller('CardsCtrl', function($scope, $http){
-  	$scope.deck = [];
-  	$http.get('/assets/data/cards.JSON').
-  		then(function(file){
-  			$scope.deck = file.data
-  		});
-		$scope.whiteCards = function(card){
-			return card.cardType === "A";
-			};
-		$scope.blackCards = function(card) {
-			return card.cardType === "Q";
-			};
-  	})
