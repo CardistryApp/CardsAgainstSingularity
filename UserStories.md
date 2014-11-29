@@ -5,13 +5,13 @@
 
 ####I can recieve a link to join a room so that I can play the game. (3)
 	
-* How does this link look? (URL)
+* How does this link look?
 
-	* 
+	* Like a URL link
 
 * How will I get this link?
 
-	* Email, text, 
+	* Email, text
 
 
 * What is the first thing I see after I click this link?
@@ -305,7 +305,6 @@
 
 ####My status will change to the next player so that everyone gets to be the dealer (5)
 
-	
 * How does my dealer status change?
 
 	* The "Dealer" class/limitations are removed.
