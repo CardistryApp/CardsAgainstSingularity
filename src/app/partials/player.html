@@ -1,14 +1,6 @@
 <div id="playerTemplate">
 	<ul>
-		<li>Card</li>
-		<li>Card</li>
-		<li>Card</li>
-		<li>Card</li>
-		<li>Card</li>
-		<li>Card</li>
-		<li>Card</li>
-		<li>Card</li>
-		<li>Card</li>
-		<li>Card</li>
+		<li ng-repeat="card in deck | filter: blackCards">{{card.text}}
+			<span id="score">{{player.score}}</span></li>
 	</ul>
 </div>

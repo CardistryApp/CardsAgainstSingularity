@@ -2,7 +2,7 @@
   "name": "cardistry",
   "version": "0.0.0",
   "dependencies": {
-    "browser-sync": "^1.7.1"
+    "twilio": "^1.9.0"
   },
   "devDependencies": {
     "gulp": "^3.8.0",
