@@ -32,13 +32,13 @@ I expect to see _many_ multiple commits per contributor per day, and everyone sh
   * [X] Everyone accepted?
   * [X] Everyone forked?
 * [ ] User Stories
-  * [ ] Written?
-  * [ ] Reviewed?
-  * [ ] Estimated?
+  * [X] Written?
+  * [X] Reviewed?
+  * [X] Estimated?
   * [ ] Revised?
 * [ ] Mockups
-  * [ ] Written?
-  * [ ] Reviewed?
+  * [X] Written?
+  * [X] Reviewed?
   * [ ] Revised?
 * [ ] Project Architecture
   * [ ] Written?

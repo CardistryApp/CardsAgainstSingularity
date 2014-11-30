@@ -1,0 +1,43 @@
+<form>
+<div id="itemRows">
+
+<input type="text" name="add_name" />
+
+
+<input id="add" onclick="addRow(this.form);" type="button" value="+" />
+
+</div>
+</form>
+
+<button id="send" class="btn btn-primary">SEND INVITE</button>
+
+
+<script type="text/javascript">
+
+
+var rowNum = 0;
+function addRow(frm) {
+rowNum ++;
+var row = '<input type="text" name="name[]" value="'+frm.add_name.value+'"></p>';
+$('#itemRows').append(row);
+frm.add_name.value = '';
+}
+
+<!--WHY IS THIS NOT WORKING?? .... TO REPLACE THE JS ABOVE-->
+
+/*$('#add').on('click') function(){
+
+	$('#itemRows').append('<input type="text" name="name[]" value="')
+
+
+
+}
+*/
+</script>
+
+
+
+
+
+
+ 
