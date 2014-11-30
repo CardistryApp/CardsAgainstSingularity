@@ -1,10 +1,44 @@
-<form ng-submit="sendText(phoneNum)">
+<!--<form ng-submit="sendText(phoneNum)">
 	<fieldset class='form-group'>
 		<button class='btn btn-primary' type="submit">Click here to invite your friends!</button>
-		<input id="phoneNum" type="tel" placeholder="555-555-5555" 
-			ng-model="phoneNum" class="form-control"></input>
+</form>
+
+
+<form>
+
+			<input id="phoneNum" type="tel" placeholder="555-555-5555" 
+			ng-model="phoneNum" class="form-control" ng-required="true"></input>
 	</fieldset>
 
-<!-- Look into http://mrngoitall.net/blog/2013/10/02/adding-form-fields-dynamically-in-angularjs/ -->
+		<div class="add"><button type="submit" class="btn"
+ng-disabled="myform.$invalid">+</button>
+	</form>
+</div>
 
+<!--> <!-- Look into http://mrngoitall.net/blog/2013/10/02/adding-form-fields-dynamically-in-angularjs/ -->
+
+<!--</form>-->
+
+<form method="post">
+<div id="itemRows">
+
+<span class="glyphicon glyphicon-comment"</span><input type="text" name="add_name" /><input onclick="addRow(this.form);" type="button" value="+" />
+</div>
 </form>
+
+
+<script type="text/javascript">
+
+var rowNum = 0;
+function addRow(frm) {
+
+rowNum ++;
+
+var row = '<span class="glyphicon glyphicon-comment"</span><input type="text" name="name[]" value="'+frm.add_name.value+'"></p>';
+jQuery('#itemRows').append(row);
+frm.add_name.value = '';
+}
+
+
+
+</script>
