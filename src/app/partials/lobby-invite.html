@@ -1,38 +1,19 @@
-<!--<form ng-submit="sendText(phoneNum)">
-  <fieldset class='form-group'>
-    <button class='btn btn-primary' type="submit">Click here to invite your friends!</button>
-    <input id="phoneNum" type="tel" placeholder="555-555-5555" 
-      ng-model="phoneNum" class="form-control"></input>
-
-<button id="add">add</button>
-  </fieldset>
-
-
-<script>
-
-
- $("#add").onClick(function(){
-    $("#phoneNum").append("<input type='text' name='add_name'/>");
-  });
-
-
-</script>
-
--->
-
-
-<form method="post">
+<form>
 <div id="itemRows">
 
-<span class="glyphicon glyphicon-comment"</span><input type="text" name="add_name"/><input onclick="addRow(this.form);" type="button" value="+" />
+<input type="text" name="add_name" />
+
+
+<input id="add" onclick="addRow(this.form);" type="button" value="+" />
+
 </div>
 </form>
 
-
-<button id="send"> SEND INVITE</button>
+<button id="send" class="btn btn-primary">SEND INVITE</button>
 
 
 <script type="text/javascript">
+
 
 var rowNum = 0;
 function addRow(frm) {
@@ -41,8 +22,18 @@ var row = '<input type="text" name="name[]" value="'+frm.add_name.value+'"></p>'
 $('#itemRows').append(row);
 frm.add_name.value = '';
 }
-</script>
 
+<!--WHY IS THIS NOT WORKING?? .... TO REPLACE THE JS ABOVE-->
+
+/*$('#add').on('click') function(){
+
+	$('#itemRows').append('<input type="text" name="name[]" value="')
+
+
+
+}
+*/
+</script>
 
 
 
