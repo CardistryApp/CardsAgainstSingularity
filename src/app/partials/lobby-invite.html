@@ -1,1 +1,10 @@
-<button class=btn btn-primary>Click here to invite your friends!</button>
+<form ng-submit="sendText(phoneNum)">
+	<fieldset class='form-group'>
+		<button class='btn btn-primary' type="submit">Click here to invite your friends!</button>
+		<input id="phoneNum" type="tel" placeholder="555-555-5555" 
+			ng-model="phoneNum" class="form-control"></input>
+	</fieldset>
+
+<!-- Look into http://mrngoitall.net/blog/2013/10/02/adding-form-fields-dynamically-in-angularjs/ -->
+
+</form>

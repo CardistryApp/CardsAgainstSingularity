@@ -26,7 +26,7 @@ angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router'])
       .state('player', {
       	url: '/player',
       	templateUrl: 'app/partials/player.html',
-      	controller: 'CardsCtrl'
+      	controller: 'MainCtrl'
       })
       .state('invite', {
       	url: '/invite',
