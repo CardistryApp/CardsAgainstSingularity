@@ -1,6 +1,6 @@
-<div ng-repeat="players in Game.players">
-	<h3>Yo, {{players.name}}</h3>
+<div ng-controller="PlayerCtrl as players">
+	<h3>Yo, {{players.value.name}}</h3>
 	<ul>
-		<li ng-repeat="card in players.cards">{{card.text}}</li>
+		<li ng-repeat="card in players.value.cards">{{card.text}}</li>
 	</ul>
 </div>

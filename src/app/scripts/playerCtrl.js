@@ -22,6 +22,17 @@ angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game'])
 		return service;
 		})
 
-	.controller('PlayerCtrl', function(Game){
-		console.log(Game.players)
+	.controller('PlayerCtrl', function(Game, $stateParams, $state){
+		var value = {}
+		var self = this
+		angular.forEach(Game.players, function(value, index){
+			if(value.id == $stateParams.id){
+				return self.value = value
+			}
+		})
+		// $stateParams.id = value.id;
+		// console.log($stateParams.id)
+		console.log(self.value.name)
+		// console.log(this.user.name);
+		// console.log(Game.players)
 	})

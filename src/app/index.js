@@ -33,12 +33,7 @@ angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
       .state('id', {
       	url: '/player/:id',
       	templateUrl: 'app/partials/player-cards.html',
-      	controller: 'GameCtrl as game'
-      })
-      .state('invite', {
-      	url: '/invite',
-      	templateUrl: 'app/partials/invite.html',
-      	controller: 'MainCtrl'
+      	controller: 'PlayerCtrl'
       })
       .state('board', {
       	url:'/board',

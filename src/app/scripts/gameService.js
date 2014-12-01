@@ -23,13 +23,12 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game'] )
 
 		this.addPlayer = function(name) {
 			this.name = $('#playerName').val()
-			console.log("works")
 			var player = Players.createPlayer(this.name);
 			Game.addPlayers(player)
 			$state.go('id', {id: player.id});
 		}
 		playersList = Game.players;
-		console.log(playersList) 
+		// console.log(playersList) 
 		
 	})
 	// .filter('playerHand', function(GameCtrl){
