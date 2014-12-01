@@ -1,6 +1,6 @@
-<div>
-	<h3>Yo, {{player.name}}</h3>
+<div ng-repeat="players in myList">
+	<h3>Yo, {{players.name}}</h3>
 	<ul>
-		<li ng-repeat="card in players">{{player.card.text}}</li>
+		<li ng-repeat="card in players.cards">{{card.text}}</li>
 	</ul>
 </div>

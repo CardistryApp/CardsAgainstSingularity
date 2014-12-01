@@ -7,7 +7,7 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game'] )
 		this.players = [];
 		this.addPlayers = function(player) {
 			self.players.push({
-				'player': player.name,
+				'name': player.name,
 				'id': player.id,
 				'cards': player.cards
 			})
@@ -21,7 +21,9 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game'] )
 			var player = Players.createPlayer();
 			playerList.addPlayers(player)
 			$state.go('id', {id: player.id});
-			console.log(playerList.players)
 		}
-
+		$scope.myList = playerList.players;
+		console.log($scope.myList)
+	})
+	.directive('playerHand', function(GameCtrl){
 	})
