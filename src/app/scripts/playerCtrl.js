@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('cardistry.players', ['cardistry.cards'])
+angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game'])
 	
 	.factory('Players', function($filter, Deck, $state){
 		var service = {};
 
-		service.createPlayer = function() {
-			var player = new Player($('#playerName').val());
+		service.createPlayer = function(name) {
+			var player = new Player(name);
 			return player;
 			};
 
@@ -20,4 +20,8 @@ angular.module('cardistry.players', ['cardistry.cards'])
 			Deck.whiteCards.splice(index, 10);
 		}
 		return service;
-		});
+		})
+
+	.controller('PlayerCtrl', function(Game){
+		console.log(Game.players)
+	})

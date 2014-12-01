@@ -2,28 +2,36 @@
 
 angular.module('cardistry.game', ['cardistry.players', 'cardistry.game'] )
 
-	.service('playerList', function(){
+	.service('Game', function(){
 		self = this;
 		this.players = [];
 		this.addPlayers = function(player) {
 			self.players.push({
 				'name': player.name,
 				'id': player.id,
-				'cards': player.cards
+				'cards': player.cards,
+				'score': player.score
 			})
 		}
 		return this;
 	})
 
-	.controller('GameCtrl', function($scope, Players, $state, playerList)	{
+	.controller('GameCtrl', function(Players, $state, Game)	{
 
-		$scope.addPlayer = function() {
-			var player = Players.createPlayer();
-			playerList.addPlayers(player)
+		var self = this;
+		var playersList = [];
+
+		this.addPlayer = function(name) {
+			this.name = $('#playerName').val()
+			console.log("works")
+			var player = Players.createPlayer(this.name);
+			Game.addPlayers(player)
 			$state.go('id', {id: player.id});
 		}
-		$scope.myList = playerList.players;
-		console.log($scope.myList)
+		playersList = Game.players;
+		console.log(playersList) 
+		
 	})
-	.directive('playerHand', function(GameCtrl){
-	})
+	// .filter('playerHand', function(GameCtrl){
+
+	// })
