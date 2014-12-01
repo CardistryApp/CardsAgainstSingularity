@@ -1,28 +1,40 @@
 'use strict';
 
-angular.module('cardistry')
-	.controller('CardsCtrl', function($scope, $http, $filter){
-  	
+angular.module('cardistry.cards', [])
+
+	.service('Deck', function($http){
+  
+		// var ref = new Firebase("https://cardistry.firebaseio.com/");
+		// var sync = $firebase(ref);
+		// var syncObject = sync.$asObject();
+
+		// syncObject.$bindTo($scope, "data");
+		// });
+
+
   	//creating the deck//
 
-  	$scope.deck = [];
-  	$scope.whiteCards = [];
-  	$scope.blackCards = [];
+  	this.deck = [];
+  	
+  	this.whiteCards = [];
+  	this.blackCards = [];
+
+		var self = this;  	
 
   	$http.get('/assets/data/cards.JSON').
   		then(function(file){
   			angular.forEach(file.data, function(card){
   				if(card.cardType === "A"){
-  					$scope.whiteCards.push(card);
-  				} else {
-  					if(card.cardType === "Q"){
-  						$scope.blackCards.push(card);
+  						self.whiteCards.push(card);
+  			} else {
+  				if(card.cardType === "Q"){
+  						self.blackCards.push(card);
   					}
   				} 
   			})
-  			$scope.deck = file.data
-  			shuffleDeck($scope.whiteCards);
-  			shuffleDeck($scope.blackCards);
+  			self.deck = file.data
+  			shuffleDeck(self.whiteCards);
+  			shuffleDeck(self.blackCards);
   		});
 
   	//shuffling the deck//
@@ -37,28 +49,5 @@ angular.module('cardistry')
 				deck[i] = t;
 			}
 			return deck;
-		}
-
-		//Player Creation and Management//
-
-		var idCounter = 0;
-
-		$scope.players = [];
-
-		var Player = function(name, index){
-			this.name = name;
-			this.cards = $filter('limitTo')($scope.whiteCards, 10);
-			this.id = ++idCounter;
-			this.score = 0;
-			$scope.whiteCards.splice(index, 10);
-		}
-
-		$scope.createPlayer = function(){
-			$('#playerTemplate').show();
-			$('#playerSignIn').hide();
-			var player = new Player($('#playerName').val());
-			$scope.players.push(player)
-			console.log($scope.players)
-			return false;
-			};
+			}
   	})

@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router'])
+angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
+	'cardistry.cards','cardistry.players','cardistry.game','cardistry.main'
+	])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('lobby', {
@@ -26,7 +28,12 @@ angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router'])
       .state('player', {
       	url: '/player',
       	templateUrl: 'app/partials/player.html',
-      	controller: 'CardsCtrl'
+      	controller: 'playerCtrl'
+      })
+      .state('player.id', {
+      	url: '/{id}',
+      	templateUrl: 'app/partials/player-cards.html',
+      	controller: 'playerCtrl'
       })
       .state('invite', {
       	url: '/invite',

@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('cardistry')
+angular.module('cardistry.main', [])
+
   .controller('MainCtrl', function ($scope) {
 
   	$scope.sendText = function(phoneNum){

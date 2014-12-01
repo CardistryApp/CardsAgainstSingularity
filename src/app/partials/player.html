@@ -3,10 +3,3 @@
 		ng-model="player.name" placeholder="Your Name"></input>
 	<button class="btn btn-primary" type="submit">Let's Play!</button>
 </form>
-
-<div id="playerTemplate" hidden>
-	<h3>Yo, {{player.name}}</h3>
-	<ul>
-		<li ng-repeat="card in players.player.cards">{{card.text}}</li>
-	</ul>
-</div>

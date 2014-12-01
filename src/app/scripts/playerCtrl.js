@@ -1,16 +1,26 @@
 'use strict';
 
-angular.module('cardistry')
-	.factory('PlayerFactory', function(){
-		var Player = function(name){
+angular.module('cardistry.players', ['cardistry.game', 'cardistry.cards'])
+
+	.controller('playerCtrl', function(Game, $scope, $filter, Deck, $state){
+		var idCounter = 0;
+
+		$scope.players = [];
+
+		function Player(name, index){
 			this.name = name;
-			this.cards = {};
-			this.id = 0;
+			this.cards = $filter('limitTo')(Deck.whiteCards, 10);
+			this.id = ++idCounter;
 			this.score = 0;
+			Deck.whiteCards.splice(index, 10);
 		}
-	})
-	.controller('PlayerCreation', function(PlayerFactory, $scope){
+
 		$scope.createPlayer = function(){
-			$('#playerTemplate').toggle();
-		}
-	})
+			var player = new Player($('#playerName').val());
+			Game.players.push(player);
+			$state.go('player.id', {id: player.id});
+			console.log(Game.players);
+			return false;
+			};
+
+		});
