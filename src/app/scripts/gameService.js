@@ -7,12 +7,12 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game', 'fireba
 		var ref = new Firebase('https://cardistry.firebaseio.com/');
 		var sync = $firebase(ref);
 
-		sync.$set({})
+		var playersArray = sync.$asArray()
 
 		self = this;
-		this.players = [];
+		this.players = playersArray
 		this.addPlayers = function(player) {
-			self.players.push({
+			self.players.$add({
 				'name': player.name,
 				'id': player.id,
 				'cards': player.cards,
