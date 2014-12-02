@@ -1,16 +1,20 @@
 <div id="lobby" class="containr">
-	<h1>Game Lobby</h1>
+	<h1>Lobby</h1>
 	<ul class="col-md-4">
-		<li><h1><a ui-sref="lobby.players">Players</a></h1></li>
-		<li><h1><a ui-sref="lobby.rules">Game Rules</a></h1></li>
-		<li><h1><a ui-sref="lobby.invite">Invite Friends</a></h1></li>
+		<li><a ui-sref="lobby.players"></a></li>
+		<li><a ui-sref="lobby.rules"></a></li>
+		<li><a ui-sref="lobby.invite"></a></li>
+		<li><a ui-sref="lobby.start"></a></li>
 	</ul>
 	<div class="col-md-8" ui-view></div>
 
-<div class="players"><a href="http://localhost:3000/index.html#/lobby/players">PLAYERS</a></div>
-<div class="rules"></div>
-<div class="invite"></div>
-<div class="start"></div>
 
+<div class="players"><a href="http://localhost:3000/index.html#/lobby/players">PLAYERS</a></div>
+
+<div class="rules"><a href="http://localhost:3000/index.html#/lobby/rules">RULES</a></div>
+
+<div class="invite"><a href="http://localhost:3000/index.html#/lobby/invite">INVITE</a></div>
+
+<div class="start"><a href="http://localhost:3000/index.html#/lobby/start">START</a></div>
 
 </div>

@@ -10,12 +10,14 @@ ul {
 
 .thumbnail {
   height: 200px;
+  }
 
   img.pull-right {
     width: 50px;
   }
-}
-ul li, p{
+
+
+ul li, p {
 	font-size: 20pt;
 }
 
@@ -25,6 +27,14 @@ ul li, p{
   background-color: green;
 
 }
+
+#lobby h1 {
+  color: white;
+  background-color: black;
+  text-align: center;
+  margin-left: -20px;
+  margin-right: -20px;
+  }
 
 
 
@@ -38,17 +48,7 @@ ul li, p{
   transform: rotate(-55deg);
   margin-top: 580px;
   margin-left: 200px;
-
-}
-
-
-.players:hover , players a {
-
-  -webkit-transform: rotate(-10deg);
-     -moz-transform: rotate(-10deg);
-       -o-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
-          transform: rotate(-10deg);
+  margin-right: 200px;
 
 }
 
@@ -82,6 +82,19 @@ ul li, p{
 }
 
 
+
+.rules a {
+  
+  text-decoration: none;
+  position: absolute;
+  margin-left: 123px;
+  margin-top: 10px;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 20px;
+  color: white;
+}
+
+
 .invite {
   
   border: 1px solid grey;
@@ -97,6 +110,23 @@ ul li, p{
   margin-top: -204px;
   margin-left: 500px;
 }
+
+
+
+
+.invite a {
+  
+  text-decoration: none;
+  float: right;
+  position:relative;
+  margin-right: 10px;
+  margin-top: -35px;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 20px;
+  color: white;
+}
+
+
 
 .start {
   
@@ -115,6 +145,52 @@ ul li, p{
 }
 
 
+
+.start a {
+  
+  text-decoration: none;
+  float: right;
+  margin-right: 13px;
+  margin-top: -38px;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 20px;
+  color: black;
+}
+
+.ruletxt {
+  
+  background-color: white;
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+  border: 1px solid black;
+  border-radius: 4%;
+  positon: absolute;
+  margin-right: 70px;
+  margin-left: -303px;
+  height: 500px;
+
+}
+
+.ruletxt p {
+  
+  margin-top: 35px;
+
+}
+
+
+#playerList {
+
+background-color: white;
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+  border: 1px solid black;
+  border-radius: 4%;
+  positon: absolute;
+  margin-right: 70px;
+  margin-left: -303px;
+  height: 500px;
+
+}
 
 
 
