@@ -1,8 +1,14 @@
 'use strict';
 
-angular.module('cardistry.game', ['cardistry.players', 'cardistry.game'] )
+angular.module('cardistry.game', ['cardistry.players', 'cardistry.game', 'firebase'] )
 
-	.service('Game', function(){
+	.service('Game', function($firebase){
+		
+		var ref = new Firebase('https://cardistry.firebaseio.com/');
+		var sync = $firebase(ref);
+
+		sync.$set({})
+
 		self = this;
 		this.players = [];
 		this.addPlayers = function(player) {
@@ -10,7 +16,8 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game'] )
 				'name': player.name,
 				'id': player.id,
 				'cards': player.cards,
-				'score': player.score
+				'score': player.score,
+				'dealer': false
 			})
 		}
 		return this;
@@ -27,10 +34,6 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game'] )
 			Game.addPlayers(player)
 			$state.go('id', {id: player.id});
 		}
-		playersList = Game.players;
-		// console.log(playersList) 
-		
+		playersList = Game.players;		
 	})
-	// .filter('playerHand', function(GameCtrl){
 
-	// })
