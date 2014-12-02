@@ -1,8 +1,16 @@
+<p class="sendtxt"> Send your "friends" a message! <br>
+Invite them to play.</p>
+
+
 <form ng-submit="sendText(phoneNum)">
 	<fieldset class='form-group'>
-		<button class='btn btn-primary' type="submit">Click here to invite your friends!</button>
 		<input id="phoneNum" type="tel" placeholder="555-555-5555" 
 			ng-model="phoneNum" class="form-control"></input>
+
 	</fieldset>
 
 </form>
+
+<button class='btn btn-primary' "sendinvite" type="submit">Send Invite!</button>
+
+<button class='btn-group btn-group-sm' type="submit">+</button>
