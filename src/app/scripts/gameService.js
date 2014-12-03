@@ -18,24 +18,24 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game', 'fireba
 			}
 		};
 	})
-	.service('Game', function($firebase, FIREBASE_URL, $stateParams){
-		var aref = '/players'
-		var ref = new Firebase(FIREBASE_URL + aref);
-		var sync = $firebase(ref);
+	// .service('Game', function($firebase, FIREBASE_URL, $stateParams){
+	// 	var aref = '/players'
+	// 	var ref = new Firebase(FIREBASE_URL + aref);
+	// 	var sync = $firebase(ref);
 
-		var self = this;
-		this.players = sync.$asArray();
-		this.addPlayers = function(player) {
-			self.players.$add({
-				'name': player.name,
-				'id': player.id	,
-				'cards': player.cards,
-				'score': player.score,
-				'dealer': false
-			})
-		}
-		return this;
-	})
+	// 	var self = this;
+	// 	this.players = sync.$asArray();
+	// 	this.addPlayers = function(player) {
+	// 		self.players.$add({
+	// 			'name': player.name,
+	// 			'id': player.id	,
+	// 			'cards': player.cards,
+	// 			'score': player.score,
+	// 			'dealer': false
+	// 		})
+	// 	}
+	// 	return this;
+	// })
 
 	.controller('GameCtrl', function(Players, $stateParams, $state, Game, $scope, $firebase)	{
 
