@@ -1,16 +1,17 @@
 /* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media screen 
+and (min-device-width 768px) 
+and (max-device-width : 1200px) 
 and (orientation : landscape) {
 /* Styles */
-}
 
 .menu {
   
   position: absolute;
 
 }
+
+
 
 ul {
 	list-style: none;
@@ -222,16 +223,16 @@ input#phoneNum {
   float:center;
 }
 
-.btn-group-sm {
+.btn-group-sm , .btn-group {
 
 margin-top: -96px;
-margin-left: 420px;
+margin-left: 685px;
 }
 
-
+}
 
 /* iPads (landscape) ----------- */
-@media only screen 
+@media screen 
 and (min-device-width : 768px) 
 and (max-device-width : 991px) 
 and (orientation : landscape) {
@@ -245,14 +246,11 @@ and (orientation : landscape) {
   margin-right: 70px;
   margin-left: 30px;
   height: 500px;
-
 }
 
-
 }
-
 /* iPads (landscape) ----------- */
-@media only screen 
+@media screen 
 and (min-device-width : 480px) 
 and (max-device-width : 768px) 
 and (orientation : landscape) {
@@ -264,12 +262,12 @@ and (orientation : landscape) {
 
   margin-right: 70px;
   margin-left: 50px;
-  height: 500px;
+  height: 500px; 
 
 }
 
 
-
+}
 
 
 
