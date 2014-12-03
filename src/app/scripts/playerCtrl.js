@@ -2,7 +2,7 @@
 
 angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game', 'firebase'])
 	
-	.factory('Players', function($filter, Deck, $state, $firebase, FIREBASE_URL){
+	.factory('Players', function($filter, Deck, $state, $firebase, FIREBASE_URL, Game){
 		var service = {};
 
 		service.createPlayer = function(name) {
@@ -15,9 +15,8 @@ angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game', 'fireb
 		var Player = function(name, index){
 			this.name = name;
 			this.cards = $filter('limitTo')(Deck.whiteCards, 10);
-			this.id = ++idCounter
-			++idCounter;
 			this.score = 0;
+			this.id = Game.players.length + 1
 			Deck.whiteCards.splice(index, 10);
 		}
 		return service;
