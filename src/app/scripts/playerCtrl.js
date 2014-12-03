@@ -1,12 +1,14 @@
 'use strict';
 
-angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game'])
+angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game', 'firebase'])
 	
-	.factory('Players', function($filter, Deck, $state){
+	.factory('Players', function($filter, Deck, $state, $firebase){
+
 		var service = {};
 
 		service.createPlayer = function(name) {
 			var player = new Player(name);
+
 			return player;
 			};
 
@@ -22,13 +24,14 @@ angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game'])
 		return service;
 		})
 
-	.controller('PlayerCtrl', function(Game, $stateParams){
+	.controller('PlayerCtrl', function(Game, $stateParams, $scope){
 		var value = {}
 		var self = this
-		angular.forEach(Game.players, function(value, index){
-			if(value.id == $stateParams.id){
-				return self.value = value
-			}
-		})
-		console.log(this.value)
+
+		angular.forEach(Game.players, function(value){
+				if(value.id == $stateParams.id){
+				self.value = value
+				}
+				return value
+			})
 	})
