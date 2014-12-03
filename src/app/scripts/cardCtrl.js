@@ -18,7 +18,7 @@ angular.module('cardistry.cards', [])
   	
   	this.whiteCards = [];
   	this.blackCards = [];
-
+    
 		var self = this;  	
 
   	$http.get('/assets/data/cards.JSON').

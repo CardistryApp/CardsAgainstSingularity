@@ -2,13 +2,11 @@
 
 angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game', 'firebase'])
 	
-	.factory('Players', function($filter, Deck, $state, $firebase){
-
+	.factory('Players', function($filter, Deck, $state, $firebase, FIREBASE_URL){
 		var service = {};
 
 		service.createPlayer = function(name) {
 			var player = new Player(name);
-
 			return player;
 			};
 
@@ -17,7 +15,8 @@ angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game', 'fireb
 		var Player = function(name, index){
 			this.name = name;
 			this.cards = $filter('limitTo')(Deck.whiteCards, 10);
-			this.id = ++idCounter;
+			this.id = ++idCounter
+			++idCounter;
 			this.score = 0;
 			Deck.whiteCards.splice(index, 10);
 		}
@@ -30,7 +29,7 @@ angular.module('cardistry.players', ['cardistry.cards', 'cardistry.game', 'fireb
 
 		angular.forEach(Game.players, function(value){
 				if(value.id == $stateParams.id){
-				self.value = value
+					self.value = value
 				}
 				return value
 			})
