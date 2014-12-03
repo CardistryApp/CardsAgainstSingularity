@@ -33,7 +33,7 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game', 'fireba
 
 	.controller('GameCtrl', function(Players, $stateParams, $state, Game, $scope, $firebase)	{
 
-		var ref = new Firebase('https://cardistry.firebaseio.com');
+		var ref = new Firebase('https://cardistry.firebaseio.com/players');
 		var sync = $firebase(ref);
 		var obj = sync.$asObject();
 
