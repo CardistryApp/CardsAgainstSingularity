@@ -40,8 +40,8 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game', 'fireba
 	.controller('GameCtrl', function(Players, $stateParams, $state, Game, $scope, $firebase)	{
 
 		var ref = new Firebase('https://cardistry.firebaseio.com');
-		var sync = $firebase();
-		var game = sync.$child('game').$asObject();
+		var sync = $firebase(ref);
+		var game = sync.$asObject();
 
 		this.addPlayer = function(name) {
 			var player = Players.createPlayer(name);
