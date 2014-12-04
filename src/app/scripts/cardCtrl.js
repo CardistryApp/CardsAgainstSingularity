@@ -3,14 +3,6 @@
 angular.module('cardistry.cards', [])
 
 	.service('Deck', function($http){
-  
-		// var ref = new Firebase("https://cardistry.firebaseio.com/");
-		// var sync = $firebase(ref);
-		// var syncObject = sync.$asObject();
-
-		// syncObject.$bindTo($scope, "data");
-		// });
-
 
   	//creating the deck//
 

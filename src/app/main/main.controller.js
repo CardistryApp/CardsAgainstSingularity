@@ -1,22 +1,50 @@
 'use strict';
 
-angular.module('cardistry.main', [])
+angular.module('cardistry.main', ['cardistry.cards'])
 
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function (Deck, $state, $stateParams, $filter) {
+		
+		var Game = function(game){
+			this.deck = Deck.deck,
+			this.deck.whiteCards = Deck.whiteCards,
+			this.deck.blackCards = Deck.blackCards,
+			this.finalScore = 10,
+			this.playedCards = {},
+			this.currentDealer = ""
+			this.players = []
+		}
+		var game = new Game();
 
-  	$scope.sendText = function(phoneNum){
-  		var accountSid = 'ACf58e41a4fd0ab11312a28e2b43d573d4'; 
-			var authToken = '1fa9bb818461cd57a5b322848ee28aa4';
+  	var self = this;
 
-			var client = require('twilio')(accountSid, authToken);
+  	this.player = {}
 
-			client.messages.create({ 
-				to: phoneNum,
-				from: "+14582022737", 
-				body: "Trial because the developers of this app are too damn cheap to pay for anything.                 Anyway follow me to play a game of cards. http://www.cardistryApp.com/03r2jrmflkm3/lobby ",   
-			}, function(err, message) { 
-				console.log(message.sid); 
-			}); 
-  		$scope.phoneNum = ''
+  	this.pageUpdate = function(){
+  		game.players.forEach(function(player, index){
+				if(player.id === index + 1) {
+					console.log("i fired")
+					return self.player = player
+				}
+			})
   	};
+
+  	this.addPlayer = function(name) {
+			this.name = name
+			var player = new Player(name)
+			game.players.push(player)
+			console.log(game)
+			this.pageUpdate();
+			$state.go('id', {id: player.id});
+		}
+
+		var idCounter = 0;
+
+		var Player = function(name, index){
+			this.name = name;
+			this.cards = $filter('limitTo')(game.deck.whiteCards, 10);
+			this.id = ++idCounter;
+			this.score = 0;
+			game.deck.whiteCards.splice(index, 10);
+		}
   })
+
