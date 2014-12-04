@@ -81,6 +81,9 @@ ul li, p {
   height: 500px; 
   margin-left: 50px;
   margin-right: 50px;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
 
   }
 
@@ -160,4 +163,24 @@ width: 70%;
 }
 
 
+@media screen and (max-width: 569px) {
+
+.rulestxt  { 
+
+font-size: 18pt; 
+padding-bottom: 5%;
+
+}
+
+}
+
+@media screen and (max-width: 476px) {
+
+.rulestxt { 
+
+font-size: 16pt; 
+
+}
+
+}
 
