@@ -1,0 +1,8 @@
+<div>
+	<h3>Yo, {{players.player.name}}</h3>
+<form>
+	<ul>
+		<li ng-repeat="card in players.player.cards" id="{{$index}}">{{card.text}}<button type="submit" ng-click="app.playCard(player,card.id,card.text, $index)">Play!</button></li>
+	</ul>
+</form>
+</div>
