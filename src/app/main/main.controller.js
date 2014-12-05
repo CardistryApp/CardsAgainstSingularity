@@ -32,7 +32,8 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 							cardText: cardText
 						})
 			this.player.cards.splice(index, 1);
-			console.log(this.player.cards)
+			$('li#'+index).remove();
+			console.log(index)
 			this.firebaseSync();
 	}
   	var self = this;
@@ -45,6 +46,7 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 			game.players.push(player)
 			$cookieStore.put('player', player)
 			$state.go('hand');
+			this.isValid();
 			this.player = player
 			this.firebaseSync();
 		}
@@ -52,7 +54,10 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 			console.log(this.player)
 		}
 
-		var idCounter = 0;
+		this.isValid = function(index){
+			// return $('li#' +index).attr('value').
+			console.log(index)
+		}
 
 		var Player = function(name, index){
 			this.name = name;
