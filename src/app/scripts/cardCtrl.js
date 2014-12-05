@@ -42,4 +42,4 @@ angular.module('cardistry.cards', [])
 			}
 			return deck;
 			}
-  	})
+  	});

@@ -79,5 +79,5 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 
 			return $firebase(ref).$asObject();
 		}
-	})
+	});
 
