@@ -21,10 +21,12 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 		var game = $scope.game = new Game();
 		
 		this.firebaseSync = function() {
-			gameObject.game = $scope.game
 			gameObject.$save()
 		}
-
+		this.syncUp = function(){
+			this.firebaseSync();
+			$state.go('player');
+		}
 		this.playCard = function(player, cardId, cardText, index){
 			game.turn.cardsPlayed.push({
 							player: this.player.name,	
@@ -34,6 +36,7 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 			this.player.cards.splice(index, 1);
 			$('li#'+index).remove();
 			console.log(index)
+			gameObject.game = $scope.game
 			this.firebaseSync();
 	}
   	var self = this;
@@ -46,17 +49,12 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 			game.players.push(player)
 			$cookieStore.put('player', player)
 			$state.go('hand');
-			this.isValid();
 			this.player = player
+			gameObject.game = $scope.game
 			this.firebaseSync();
 		}
 		this.log = function(){
 			console.log(this.player)
-		}
-
-		this.isValid = function(index){
-			// return $('li#' +index).attr('value').
-			console.log(index)
 		}
 
 		var Player = function(name, index){
