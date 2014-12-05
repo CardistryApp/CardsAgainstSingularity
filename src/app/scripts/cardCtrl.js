@@ -3,14 +3,6 @@
 angular.module('cardistry.cards', [])
 
 	.service('Deck', function($http){
-  
-		// var ref = new Firebase("https://cardistry.firebaseio.com/");
-		// var sync = $firebase(ref);
-		// var syncObject = sync.$asObject();
-
-		// syncObject.$bindTo($scope, "data");
-		// });
-
 
   	//creating the deck//
 
@@ -22,8 +14,8 @@ angular.module('cardistry.cards', [])
 		var self = this;  	
 
   	$http.get('/assets/data/cards.JSON').
-  		then(function(file){
-  			angular.forEach(file.data, function(card){
+  		then(function(deck){
+  			angular.forEach(deck.data, function(card){
   				if(card.cardType === "A"){
   						self.whiteCards.push(card);
   			} else {
@@ -32,7 +24,7 @@ angular.module('cardistry.cards', [])
   					}
   				} 
   			})
-  			self.deck = file.data
+  			self.deck = deck.data
   			shuffleDeck(self.whiteCards);
   			shuffleDeck(self.blackCards);
   		});

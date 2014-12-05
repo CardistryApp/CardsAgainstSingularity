@@ -43,6 +43,11 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game', 'fireba
 				$state.go('id', {id: player.id})
 			}, 50)
 		}
+<<<<<<< HEAD
 	})
 
 	
+=======
+		playersList = Game.players;
+	})
+>>>>>>> 3e8fe2289ed5a431322e4a4f8bcc24c8f9531d09
