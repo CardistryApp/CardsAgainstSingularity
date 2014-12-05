@@ -1,8 +1,8 @@
 <div>
-	<h3>Yo, {{app.player.name}}</h3>
+	<h3>Yo, {{players.player.name}}</h3>
 <form>
 	<ul>
-		<li ng-repeat="card in app.player.cards">{{card.text}}<button id="playCard" type="submit" ng-click="app.playCard(player,card.id,card.text)">Play!</button></li>
+		<li ng-repeat="card in players.player.cards">{{card.text}}<button id="playCard" type="submit" ng-click="app.playCard(player,card.id,card.text)">Play!</button></li>
 	</ul>
 </form>
 </div>

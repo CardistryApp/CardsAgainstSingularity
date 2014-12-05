@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('cardistry.main', ['cardistry.cards', 'ngCookies'])
+angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 
-  .controller('MainCtrl', function (Deck, $state, $stateParams, $filter, $rootScope, $cookieStore, $scope) {
-		// $cookieStore.remove('player')
+  .controller('MainCtrl', function (Deck, $state, $stateParams, $filter, $rootScope, $cookieStore, $scope, FB) {
+  	var gameObject = FB();
+
 		var Game = function(game){
 			this.deck = {
 				whiteCards: Deck.whiteCards,
@@ -17,23 +18,24 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies'])
 			}
 			this.players = []
 		}
-		var game = this.game = new Game();
+		var game = $scope.game = new Game();
+		
+		this.firebaseSync = function() {
+			gameObject.game = $scope.game
+			gameObject.$save()
+		}
 
 		this.playCard = function(player, cardId, cardText){
-			console.log(game)
 			game.turn.cardsPlayed.push({
 							player: this.player.name,	
 							cardId: cardId,
 							cardText: cardText
 						})
+			this.firebaseSync();
 	}
-
   	var self = this;
 
   	this.player = $cookieStore.get('player')
-
-  	this.pageUpdate = function(){
-  	};
 
   	var cardPlayer = (this.player, 134, "flying sex snakes")
 
@@ -41,10 +43,14 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies'])
 			this.name = name
 			var player = new Player(name)
 			game.players.push(player)
-			// console.log(game)
-			$cookieStore.put('playerCookie', player)
+			$cookieStore.put('player', player)
 			$state.go('hand');
-			console.log(game)
+			this.player = player
+			this.firebaseSync();
+			this.log()
+		}
+		this.log = function(){
+			console.log(this.player)
 		}
 
 		var idCounter = 0;
@@ -57,19 +63,27 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies'])
 			game.deck.whiteCards.splice(index, 10);
 		}
 	console.log(game)
+	$rootScope.game = game
+	$rootScope.player = $cookieStore.get('player')
   })
 
-	// .controller('PlayerCtrl', function($rootScope, $stateParams){
-	// 	var game = $rootScope.game
+	.controller('PlayerCtrl', function($rootScope, $stateParams, $cookieStore){
+		var game = $rootScope.game
+		this.player = $cookieStore.get('player')
 
-	// 	angular.forEach(game.players, function(player, index){
-	// 		if(player.id == $stateParams.id) {
-	// 			console.log("i fired")
-	// 			console.log(player)
-	// 			return player
-	// 		}
-	// 	})
+		// angular.forEach(game.players, function(player, index){
+		// 	if(player.id == $stateParams.id) {
+		// 		console.log("i fired")
+		// 		console.log(player)
+		// 		return player
+		// 	}
+		// })
+	})
+	.factory('FB', function($firebase){
+		return function(gameId){
+			var ref = new Firebase("https://cardistry.firebaseio.com/").child('game')
 
-	// 	console.log(game.players)
-	// })
+			return $firebase(ref).$asObject();
+		}
+	})
 
