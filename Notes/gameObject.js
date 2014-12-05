@@ -1,6 +1,6 @@
-var Game = {
+var game = {
 	players: {
-		player1: {
+		0: {
 			name: "Ari",
 			id: 1,
 			score: 2,
@@ -23,7 +23,7 @@ var Game = {
 				}
 			}	
 		}
-		player2: {
+		1: {
 			name: "Melissa",
 			id: 2,
 			score: 1,
@@ -46,7 +46,7 @@ var Game = {
 				}
 			}	
 		}
-		player3: {
+		2: {
 			name: "David",
 			id: 3,
 			score: 0,
@@ -71,11 +71,24 @@ var Game = {
 		}
 	}
 	deck: {
-		whiteCards: "A"
+		whiteCards: "A",
 		blackCards: "Q"
 	}
-	turn: 4
-	playedCards: { }
-	finalScore: 10;
-	currentDealer: "Ari"
+	turn: {
+		number: 4,
+		cardsPlayed: {
+			0: {
+				playedBy: 2
+				id: 438
+				text:"Nicolas Cage"
+			}
+			1: {
+				playedBy: 3,
+				id: 123,
+				text: "Santa's sack"
+			}
+		}
+		currentDealer: "Ari"
+	}
+	finalScore: 10
 }

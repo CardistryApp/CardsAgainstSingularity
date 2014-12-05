@@ -1,40 +1,50 @@
 'use strict';
 
-angular.module('cardistry.main', ['cardistry.cards'])
+angular.module('cardistry.main', ['cardistry.cards', 'ngCookies'])
 
-  .controller('MainCtrl', function (Deck, $state, $stateParams, $filter) {
-		
+  .controller('MainCtrl', function (Deck, $state, $stateParams, $filter, $rootScope, $cookieStore, $scope) {
+		// $cookieStore.remove('player')
 		var Game = function(game){
-			this.deck = Deck.deck,
-			this.deck.whiteCards = Deck.whiteCards,
-			this.deck.blackCards = Deck.blackCards,
+			this.deck = {
+				whiteCards: Deck.whiteCards,
+				blackCards: Deck.blackCards
+			}
 			this.finalScore = 10,
-			this.playedCards = {},
-			this.currentDealer = ""
+			this.turn = {
+				number: 0,
+				currentDealer: "",
+				cardsPlayed: []
+			}
 			this.players = []
 		}
-		var game = new Game();
+		var game = this.game = new Game();
+
+		this.playCard = function(player, cardId, cardText){
+			console.log(game)
+			game.turn.cardsPlayed.push({
+							player: this.player.name,	
+							cardId: cardId,
+							cardText: cardText
+						})
+	}
 
   	var self = this;
 
-  	this.player = {}
+  	this.player = $cookieStore.get('player')
 
   	this.pageUpdate = function(){
-  		game.players.forEach(function(player, index){
-				if(player.id === index + 1) {
-					console.log("i fired")
-					return self.player = player
-				}
-			})
   	};
+
+  	var cardPlayer = (this.player, 134, "flying sex snakes")
 
   	this.addPlayer = function(name) {
 			this.name = name
 			var player = new Player(name)
 			game.players.push(player)
+			// console.log(game)
+			$cookieStore.put('playerCookie', player)
+			$state.go('hand');
 			console.log(game)
-			this.pageUpdate();
-			$state.go('id', {id: player.id});
 		}
 
 		var idCounter = 0;
@@ -46,5 +56,20 @@ angular.module('cardistry.main', ['cardistry.cards'])
 			this.score = 0;
 			game.deck.whiteCards.splice(index, 10);
 		}
+	console.log(game)
   })
+
+	// .controller('PlayerCtrl', function($rootScope, $stateParams){
+	// 	var game = $rootScope.game
+
+	// 	angular.forEach(game.players, function(player, index){
+	// 		if(player.id == $stateParams.id) {
+	// 			console.log("i fired")
+	// 			console.log(player)
+	// 			return player
+	// 		}
+	// 	})
+
+	// 	console.log(game.players)
+	// })
 
