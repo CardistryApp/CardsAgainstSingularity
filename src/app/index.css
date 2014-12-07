@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 ul {
 	list-style: none;
 }
@@ -50,13 +54,13 @@ ul li, p{
   text-decoration: none;
   color: black;
   margin: auto;
-  font-size: 60pt;
+  font-size: 44pt;
   text-align: center;
   padding-top: 3ex;
   padding-bottom: 3ex;
 }
 #accountInfo {
-  height: 35vh;
+  height: 39vh;
 }
 .bottom-left {
   width: 50%;
@@ -95,5 +99,5 @@ ul li, p{
   text-decoration: none;
   color: black;
   padding-bottom: 6ex;
-
+  padding-top: 5ex;
 }
