@@ -4,18 +4,10 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 
   .controller('MainCtrl', function (Deck, $state, $stateParams, $filter, $rootScope, $cookieStore, $scope, FBobj, Game) {
 
-  	var ref = new Firebase('https://cardistry.firebaseio.com')
-
-  	this.test = function(){
-  		ref.on("value", function(snapshot) {
-	  		console.log(snapshot.val().games.game);
-	  		return snapshot.val().games.game;
-			}, function (errorObject) {
-	  		console.log("The read failed: " + errorObject.code);
-			});
-  	}
-
-		console.log(this.test())
+  	$('html, body').css({
+    'overflow': 'hidden',
+    'height': '100%'
+		})
 
   	var gameObject = FBobj();
   	console.log(gameObject)

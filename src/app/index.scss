@@ -18,7 +18,17 @@ ul {
 ul li, p{
 	font-size: 20pt;
 }
-.container {
-	background-color: lightBlue;
-	height:100vh;
+
+.auth {
+  height: 100vh
+}
+
+.signIn {
+  height: 50vh; 
+}
+
+.signUp {
+  height: 50vh;
+  background-color: black;
+  color: white;
 }
