@@ -3,7 +3,7 @@
 angular.module('cardistry.main', ['cardistry.cards','firebase'])
 
   .controller('MainCtrl', function (Deck, $scope, $firebase, Auth) {
-  	
+
   	//firebase gameObject stuff
   	var ref = new Firebase('https://cardistry.firebaseio.com').child('gameDB')
   	var sync = $firebase(ref);
@@ -25,17 +25,18 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
         console.error("Authentication failed: ", error);
       });
     }
+    $scope.user = $scope.auth.$getAuth();
 
     function isNewUser() {
-       pref.child($scope.user.uid).once('value', function(snapshot) {
-         if(snapshot.val() !== null){
-         	return false
-         }
-       })
+       if(pref.child($scope.user.uid) === null){
+       	return true;
+       } {
+       	return false;
+       }
      }
-
-    $scope.user = $scope.auth.$getAuth();
 		
+     console.log(isNewUser())
+
 		pref.onAuth(function(authData) {
   		if (authData && isNewUser) {
   			$scope.user.firstName = $scope.user.facebook.cachedUserProfile.first_name,
