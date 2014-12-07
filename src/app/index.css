@@ -101,3 +101,17 @@ ul li, p{
   padding-bottom: 6ex;
   padding-top: 5ex;
 }
+
+#profilePic {
+  width: 100px;
+  border-radius: 50%;
+  float: left;
+  padding: 13px;
+}
+
+#greeting {
+  font-size: 30pt;
+  display: inline-block;
+  padding: 10px;
+  padding-top: 42px;
+}
