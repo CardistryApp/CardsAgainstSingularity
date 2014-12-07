@@ -2,10 +2,97 @@
 
 angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 
-  .controller('MainCtrl', function (Deck, $state, $stateParams, $filter, $rootScope, $cookieStore, $scope, FB) {
-  	var gameObject = FB();
+  .controller('MainCtrl', function (Deck, $state, $stateParams, $filter, $rootScope, $cookieStore, $scope, FBobj, Game) {
 
-		var Game = function(game){
+  	var ref = new Firebase('https://cardistry.firebaseio.com')
+
+  	this.test = function(){
+  		ref.on("value", function(snapshot) {
+	  		console.log(snapshot.val().games.game);
+	  		return snapshot.val().games.game;
+			}, function (errorObject) {
+	  		console.log("The read failed: " + errorObject.code);
+			});
+  	}
+
+		console.log(this.test())
+
+  	var gameObject = FBobj();
+  	console.log(gameObject)
+
+  	this.fbPlayList = function(){
+  		console.log(gameObject.game.players)
+  	}
+
+		var game = gameObject.game = new Game();
+		$cookieStore.put('game', game)
+		gameObject.game = $cookieStore.get('game')
+		gameObject.$save()
+
+		this.firebaseSync = function() {
+			console.log("saved")
+			gameObject.$save()
+		}
+		this.syncUp = function(){
+			this.firebaseSync();
+			$state.go('player');
+		}
+		this.playCard = function(player, cardId, cardText, index){
+			game.turn.cardsPlayed.push({
+							player: $rootScope.player.name,	
+							cardId: cardId,
+							cardText: cardText
+						})
+			$rootScope.player.cards.splice(index, 1);
+			$('li#'+index).remove();
+			gameObject.game = $scope.game
+			console.log(game)
+			this.firebaseSync();
+	}
+  	var self = this;
+
+  	// this.player = $cookieStore.get('player')
+
+  	this.addPlayer = function(name) {
+			self.name = name
+			var player = new Player(name)
+			game.players.push(player)
+			// $cookieStore.put('player', player)
+			$state.go('hand', {id: player.id});
+			$rootScope.player = player
+			gameObject.$save()
+			return false
+		}
+		this.log = function(){
+			console.log(this.player)
+		}
+
+		var Player = function(name, index){
+			this.name = name;
+			this.cards = $filter('limitTo')(game.deck.whiteCards, 10);
+			this.id = game.players.length + 1;
+			this.score = 0;
+			game.deck.whiteCards.splice(index, 10);
+		}
+	
+	$rootScope.game = game
+  })
+
+	.controller('PlayerCtrl', function($rootScope, $stateParams, $cookieStore){
+		this.game = $rootScope.game
+		console.log(this.game)
+		this.player = $rootScope.player
+	})
+
+	.factory('FBobj', function($firebase){
+		return function(gameId){
+			var ref = new Firebase("https://cardistry.firebaseio.com/").child('games')
+			return $firebase(ref).$asObject();
+		}
+	})
+
+	.factory('Game', function(Deck){
+		return function(){
 			this.deck = {
 				whiteCards: Deck.whiteCards,
 				blackCards: Deck.blackCards
@@ -16,70 +103,7 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
 				currentDealer: "",
 				cardsPlayed: []
 			}
-			this.players = []
-		}
-		var game = $scope.game = new Game();
-		
-		this.firebaseSync = function() {
-			gameObject.game = $scope.game
-			gameObject.$save()
-		}
-
-		this.playCard = function(player, cardId, cardText, index){
-			game.turn.cardsPlayed.push({
-							player: this.player.name,	
-							cardId: cardId,
-							cardText: cardText
-						})
-			this.player.cards.splice(index, 1);
-			$('li#'+index).remove();
-			console.log(index)
-			this.firebaseSync();
-	}
-  	var self = this;
-
-  	this.player = $cookieStore.get('player')
-
-  	this.addPlayer = function(name) {
-			this.name = name
-			var player = new Player(name)
-			game.players.push(player)
-			$cookieStore.put('player', player)
-			$state.go('hand');
-			this.isValid();
-			this.player = player
-			this.firebaseSync();
-		}
-		this.log = function(){
-			console.log(this.player)
-		}
-
-		this.isValid = function(index){
-			// return $('li#' +index).attr('value').
-			console.log(index)
-		}
-
-		var Player = function(name, index){
-			this.name = name;
-			this.cards = $filter('limitTo')(game.deck.whiteCards, 10);
-			this.id = game.players.length + 1;
-			this.score = 0;
-			game.deck.whiteCards.splice(index, 10);
-		}
-	console.log(game)
-	$rootScope.game = game
-	$rootScope.player = $cookieStore.get('player')
-  })
-
-	.controller('PlayerCtrl', function($rootScope, $stateParams, $cookieStore){
-		this.player = $cookieStore.get('player')
-	})
-
-	.factory('FB', function($firebase){
-		return function(gameId){
-			var ref = new Firebase("https://cardistry.firebaseio.com/").child('games')
-
-			return $firebase(ref).$asObject();
-		}
-	})
+				this.players = []
+			}
+	});
 

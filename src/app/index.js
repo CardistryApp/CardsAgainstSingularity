@@ -26,7 +26,7 @@ angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
       	templateUrl: 'app/partials/player.html'
       })
       .state('hand', {
-      	url: '/hand',
+      	url: '/{id}',
       	templateUrl: 'app/partials/player-cards.html',
         controller: 'PlayerCtrl as players'
       })
