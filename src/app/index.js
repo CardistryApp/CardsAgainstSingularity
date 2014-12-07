@@ -22,6 +22,11 @@ angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
         templateUrl: "app/partials/czar.html"
       })
 
+      .state('about', {
+        url: '/about',
+        templateUrl: "app/partials/about.html"
+      })
+
     $urlRouterProvider.otherwise('/');
   })
 
