@@ -1,8 +1,13 @@
-/* Custom styling for the Bootstrap website. */
+
 
 body {
 	margin-left: 5%;
 	padding-top: 5%;
+}
+
+ul {
+
+	list-style-type: none;
 }
 
 .logo {
@@ -80,16 +85,70 @@ body {
 	padding-right: 1386px;
 }
 
+.intro span {
+
+	font-weight: bold;
+
+}
+
+.stack {
+
+	padding-left: 30%;
+	color: #602F8D;
+	font-weight: bold;
+}
+
+.rules {
+
+	background-color: black;
+	color: white;
+	padding-top: 2px;
+	padding-bottom: 20px;
+	margin-left: -80px;
+	padding-left: 80px;
+}
+
+img {
+
+	border-radius: 6%;
+}
 
 
-@media (max-width: 767px) {
+	.bio2 {
 
-  .start {
+		margin-left: 15%;
+		margin-top: -20%;
+	}
+
+	.msocial {
+
+	display: inline-block;
+	margin-right: 150px;
+	padding-bottom: 100px;
+	padding-left: 114px;
+	}
+
+	.dev2 {
+
+			}
+
+
+
+
+@media (min-width: 400px) and (max-width: 767px) {
+
+		.start {
 	
-	margin-left: 25%;
+	margin-left: 35%;
 	margin-bottom: 10%;
+	margin-top: 5%;
+	}
 
-		}
+	.stack {
+
+				padding-left: 17%;
+	}
+
 
 }
 
@@ -97,8 +156,9 @@ body {
 
 	.logo {
 		text-align: center;
+		clear: both;
 		padding-left: 200px;
-		padding-top:25px;
+
 	}
 
 	.tagline {
@@ -115,6 +175,11 @@ body {
 	margin-left: 40%;
 	margin-bottom: 10%;
 	margin-top: 5%;
+	}
+
+		.stack {
+
+		padding-left: 17%;
 	}
 }
 
