@@ -28,9 +28,4 @@ angular.module('cardistry.game', ['cardistry.players', 'cardistry.game'] )
 			$state.go('id', {id: player.id});
 		}
 		playersList = Game.players;
-		// console.log(playersList) 
-		
 	})
-	// .filter('playerHand', function(GameCtrl){
-
-	// })
