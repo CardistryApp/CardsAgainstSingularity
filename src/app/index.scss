@@ -1,7 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  font-family: sans-serif;
+}
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 .browsehappy {
   margin: 0.2em 0;
@@ -18,26 +25,120 @@ ul {
   }
 }
 ul li, p{
-	font-size: 20pt;
-}
-<<<<<<< HEAD
-
-.auth {
-  height: 100vh
+  font-size: 20pt;
 }
 
-.signIn {
-  height: 50vh; 
-=======
-.container {
-	background-color: lightBlue;
-	height:100vh;
-  width: 100%
->>>>>>> 8b086e06af6f3a8fac05fc74883cd847290632d6
+.auth p {
+  font-size: 60pt;
+  text-align: center;
+  padding-top: 3ex;
 }
 
-.signUp {
+.top p {
+  font-size: 150%;
+  padding-bottom: 3ex;
+}
+
+.top {
   height: 50vh;
   background-color: black;
+  color: white; 
+}
+
+.bottom {
+  height: 50%;
+}
+
+.bottom a{
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin: auto;
+  font-size: 44pt;
+  text-align: center;
+  padding-top: 3ex;
+  padding-bottom: 3ex;
+}
+#accountInfo {
+  height: 50vh;
+}
+.bottom-left {
+  width: 50%;
+  background-color: black;
   color: white;
+  font-size: 27pt;
+  padding-bottom: 55px;
+}
+
+.bottom-right {
+  font-size: 25pt
+}
+
+#gameChoices {
+  border-top: black 3px solid;
+}
+
+#gameChoices li {
+  display: inline-block;
+}
+
+#cardCzar a, #playerSelect a {
+  display: inline-block;
+  padding-top: 100px;
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 6ex;
+  font-weight: bold;
+}
+
+#playerSelect a {
+  color: black;
+  font-size: 27pt;
+}
+
+#profilePic {
+  width: 100px;
+  border-radius: 50%;
+  float: left;
+  padding: 13px;
+}
+
+#greeting {
+  font-size: 27pt;
+  display: block;
+  padding: 10px;
+  font-weight: bold;
+}
+
+#confirm {
+  font-size: 14pt;
+}
+
+#answerCards{
+  font-weight: bolder;
+  overflow: hidden;
+  margin-top: 16ex;
+}
+
+#answerCards li {
+  display: inline;
+  white-space: nowrap;
+  font-size: 24pt;
+  margin: 4em;
+  overflow: hidden
+}
+
+#player {
+  height: 100vh;
+}
+
+#scoreboard li {
+  font-size: 17pt;
+  text-align: right;
+  padding-right: 23px;
+  padding-top: 29px;
+  font-weight: bold;
 }
