@@ -1,0 +1,10 @@
+<div id="lobby" class="containr">
+	<h1>Game Lobby</h1>
+	<ul class="col-md-4">
+		<li><h1><a ui-sref="lobby.players">Players</a></h1></li>
+		<li><h1><a ui-sref="lobby.rules">Game Rules</a></h1></li>
+		<li><h1><a ui-sref="lobby.invite">Invite Friends</a></h1></li>
+		<li><h1><a ng-click="app.syncUp()">Start!</a></h1></li>
+	</ul>
+	<div class="col-md-8" ui-view></div>
+</div>
