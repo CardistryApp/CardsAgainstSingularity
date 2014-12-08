@@ -1,6 +1,5 @@
 'use strict';
 
-<<<<<<< HEAD
 angular.module('cardistry.main', ['cardistry.cards','firebase'])
 
 	.constant('CONFIG', {
@@ -48,98 +47,29 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   		self.user.$save()
   	}
 
-=======
-angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
-
-  .controller('MainCtrl', function (Deck, $state, $stateParams, $filter, $rootScope, $cookieStore, $scope, FB) {
-  	var gameObject = FB();
-
-		var Game = function(game){
-			this.deck = {
-				whiteCards: Deck.whiteCards,
-				blackCards: Deck.blackCards
-			}
-			this.finalScore = 10,
-			this.turn = {
-				number: 0,
-				currentDealer: "",
-				cardsPlayed: []
-			}
-			this.players = []
-		}
-		var game = $scope.game = new Game();
-		
-		this.firebaseSync = function() {
-			gameObject.$save()
-		}
-		this.syncUp = function(){
-			this.firebaseSync();
-			$state.go('player');
-		}
->>>>>>> 8b086e06af6f3a8fac05fc74883cd847290632d6
 		this.playCard = function(player, cardId, cardText, index){
 			this.acards.splice(index, 1);
 			$('li#'+index).remove();
-<<<<<<< HEAD
 			$('li#'+index).append('test')
 			console.log(this.acards)
 			this.qcards.splice(index, 1);
 			this.qcards = $filter('limitTo')(Deck.blackCards, 1)
 			this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
 			self.user.$save()
-=======
-			console.log(index)
-			gameObject.game = $scope.game
-			this.firebaseSync();
->>>>>>> 8b086e06af6f3a8fac05fc74883cd847290632d6
 	}
 })
 
-<<<<<<< HEAD
 	.controller('loginPageCtrl', function($rootScope, Auth, $scope, $firebase, $filter, Deck){
  
     this.logIn = Auth.logIn;
  
     this.logOut = Auth.logOut;
-=======
-  	this.player = $cookieStore.get('player')
-
-  	this.addPlayer = function(name) {
-			this.name = name
-			var player = new Player(name)
-			game.players.push(player)
-			$cookieStore.put('player', player)
-			$state.go('hand');
-			this.player = player
-			gameObject.game = $scope.game
-			this.firebaseSync();
-		}
-		this.log = function(){
-			console.log(this.player)
-		}
-
-		var Player = function(name, index){
-			this.name = name;
-			this.cards = $filter('limitTo')(game.deck.whiteCards, 10);
-			this.id = game.players.length + 1;
-			this.score = 0;
-			game.deck.whiteCards.splice(index, 10);
-		}
-	console.log(game)
-	$rootScope.game = game
-	$rootScope.player = $cookieStore.get('player')
-  })
-
-	.controller('PlayerCtrl', function($rootScope, $stateParams, $cookieStore){
-		this.player = $cookieStore.get('player')
->>>>>>> 8b086e06af6f3a8fac05fc74883cd847290632d6
 	})
 
 	.factory('FirebaseUrl', function(CONFIG){
     return new Firebase(CONFIG.Firebase.baseUrl);
   })
 
-<<<<<<< HEAD
   .factory('Auth', function (FirebaseUrl, $firebaseAuth, $firebase, $filter, Deck){
  
     var auth = $firebaseAuth(FirebaseUrl);
@@ -201,9 +131,4 @@ angular.module('cardistry.main', ['cardistry.cards', 'ngCookies', 'firebase'])
       return user;
     } // END updateUser
   }) // END factory(Auth)
-=======
-			return $firebase(ref).$asObject();
-		}
-	});
->>>>>>> 8b086e06af6f3a8fac05fc74883cd847290632d6
 
