@@ -58,7 +58,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 			self.user.$save()
 	}
 })
-	
+
 	.controller('loginPageCtrl', function($rootScope, Auth, $scope, $firebase, $filter, Deck){
  
     this.logIn = Auth.logIn;
@@ -119,8 +119,11 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
         uid: authdUser.uid,
         facebook: authdUser.facebook,
         fullName: authdUser.facebook.displayName,
+        firstName: authdUser.facebook.cachedUserProfile.first_name,
         avatarUrl: authdUser.facebook.cachedUserProfile.picture.data.url,
-        homeboy: "jugggaaa"
+        dailyScore: 0,
+        weeklyScore: 0,
+        totalScore: 0
       });
  
       var user = $firebase(FirebaseUrl.child('players').child(authdUser.facebook.id)).$asObject();

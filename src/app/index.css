@@ -134,3 +134,11 @@ ul li, p{
 #player {
   height: 100vh;
 }
+
+#scoreboard li {
+  font-size: 17pt;
+  text-align: right;
+  padding-right: 23px;
+  padding-top: 29px;
+  font-weight: bold;
+}
