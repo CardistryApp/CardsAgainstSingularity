@@ -124,9 +124,4 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
  
       return user;
     } // END updateUser
-<<<<<<< HEAD
   }); // END factory(Auth)
-
-=======
-  }); // END factory(Auth)
->>>>>>> ead4a54d8e9a4941709c7ac0fbabe69f2147a29a

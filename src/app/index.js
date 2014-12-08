@@ -1,11 +1,6 @@
 'use strict';
 
-<<<<<<< HEAD
 angular.module('cardistry', ['ui.router', 'firebase', 'cardistry.cards','cardistry.main'])
-=======
-angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistry.main'
-	])
->>>>>>> ead4a54d8e9a4941709c7ac0fbabe69f2147a29a
 
   .run(function($rootScope, $state) {
     $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
