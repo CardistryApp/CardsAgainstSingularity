@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('cardistry.main', ['cardistry.cards','firebase'])
-
 	.constant('CONFIG', {
     Firebase: {
       baseUrl: 'https://cardistry.firebaseio.com/gameDB'
@@ -19,11 +18,6 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   		this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
   		self.user.$save()
   	}
-
-	  //locking the viewport	
-  	// $('html, body').css({'overflow': 'hidden','height': '100%'})
-  	// $('#answer').css({'overflow': 'scroll','height': '100%'})
-
 })
 
 	.controller('PlayerCtrl', function(Deck, $filter, $rootScope, Auth){
@@ -130,5 +124,9 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
  
       return user;
     } // END updateUser
+<<<<<<< HEAD
   }); // END factory(Auth)
 
+=======
+  }); // END factory(Auth)
+>>>>>>> ead4a54d8e9a4941709c7ac0fbabe69f2147a29a

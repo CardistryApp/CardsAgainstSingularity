@@ -1,15 +1,14 @@
 <div id="player">
-<ul>
-	<li>
-		<section id="question" class="top" ng-repeat="card in players.qcards">
-			<h3>{{card.text}}</h3>
-		</section>
-	</li>
-	<li id="answer">
-		<section class="bottom">
-			<ul id="answerCards">
+	<ul id="questions">
+		<li>
+			<section id="question" class="top" ng-repeat="card in players.qcards">
+				<h3>{{card.text}}</h3>
+			</section>
+		</li>
+	</ul>
+	<h3 id="answer">
+		<section id="answerCards" class="bottom">
 				<div id="ansWrap"><li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}}<button type="submit" ng-click="players.playCard(player,card.id,card.text, $index)">play</button><span hidden id="confirm">Are You Sure?<button id="submit">Yes</button></span><button ng-show="players.acards.length < 10" ng-click="players.dealIn" id="cardBack">Gimme a card!</button></div>
-			</ul>
 		</section>
 	</li>
 </div>
