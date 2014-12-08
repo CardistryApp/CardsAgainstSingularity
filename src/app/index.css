@@ -4,6 +4,43 @@
 }
 
 
+#ansWrap {
+
+  color: green;
+}
+
+.chevron::before {
+border-style: solid;
+border-width: 0.25em 0.25em 0 0;
+content: '';
+display: inline-block;
+height: 0.45em;
+position: relative;
+top: -2.85em;
+vertical-align: bottom;
+width: 0.45em;
+margin-left: 15px;
+}
+
+.chevron.right:before {
+  
+left: 82%;
+top: -1.85em;
+transform: rotate(45deg);
+}
+
+
+.chevron.left:before {
+  left: 0.25em;
+  transform: rotate(-135deg);
+}
+
+
+
+
+
+
+
 body {
   font-family: sans-serif;
 }
