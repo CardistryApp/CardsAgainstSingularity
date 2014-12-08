@@ -1,0 +1,155 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: sans-serif;
+
+}
+
+ul {
+	list-style: none;
+}
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+ul li, {
+	font-size: 20pt;
+}
+
+.auth p {
+  font-size: 60pt;
+  text-align: center;
+  padding-top: 3ex;
+}
+
+.top p {
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 270%;
+  padding-bottom: 3ex;
+}
+
+.top {
+  height: 50%;
+  background-color: black;
+  color: white; 
+}
+
+.bottom {
+  height: 50%;
+}
+
+.bottom a{
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin: auto;
+  font-size: 44pt;
+  text-align: center;
+  padding-top: 3ex;
+  padding-bottom: 3ex;
+}
+#accountInfo {
+  height: 39vh;
+}
+.bottom-left {
+  width: 50%;
+  background-color: black;
+  color: white;
+  font-size: 27pt;
+  padding-bottom: 55px;
+}
+
+.bottom-right {
+  font-size: 25pt
+}
+
+#gameChoices {
+  border-top: black 3px solid;
+}
+
+#gameChoices li {
+  display: inline-block;
+}
+
+#cardCzar a {
+  display: inline-block;
+  padding-top: 100px;
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 6ex;
+}
+
+#playerSelect a {
+  display: inline-block;
+  font-size: 27pt;
+  text-decoration: none;
+  color: black;
+  padding-bottom: 6ex;
+  padding-top: 5ex;
+}
+
+.about {
+
+  margin-top: -285px;
+  margin-left: 155px;
+  font-weight: 900;
+
+
+}
+
+.about a {
+
+    text-decoration: none;
+    color: white;
+}
+
+.about p {
+
+  font-size: 12px;
+  
+}
+
+span {
+
+  font-weight: 900;
+}
+
+h2 {
+
+  padding-left: 2px;
+}
+
+.rules {
+
+  padding-left: 100px;
+
+}
+
+.allabout {
+
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 30px;
+  padding-top: 5px;
+  font-size: 14px;
+
+}
+
+
