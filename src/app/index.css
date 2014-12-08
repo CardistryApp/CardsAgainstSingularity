@@ -40,7 +40,7 @@ ul li, p{
 }
 
 .top {
-  height: 50%;
+  height: 50vh;
   background-color: black;
   color: white; 
 }
@@ -60,7 +60,7 @@ ul li, p{
   padding-bottom: 3ex;
 }
 #accountInfo {
-  height: 39vh;
+  height: 50vh;
 }
 .bottom-left {
   width: 50%;
@@ -114,4 +114,8 @@ ul li, p{
   display: inline-block;
   padding: 10px;
   padding-top: 42px;
+}
+
+#confirm {
+  font-size: 14pt;
 }

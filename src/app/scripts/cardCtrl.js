@@ -19,7 +19,7 @@ angular.module('cardistry.cards', [])
   				if(card.cardType === "A"){
   						self.whiteCards.push(card);
   			} else {
-  				if(card.cardType === "Q"){
+  				if(card.cardType === "Q" && card.numAnswers === 1){
   						self.blackCards.push(card);
   					}
   				} 

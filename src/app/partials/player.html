@@ -1,6 +1,15 @@
-<form id="playerSignIn" ng-submit="app.addPlayer(name)">
-	<input id="playerName" type="text" class="form-control" 
-		ng-model="name" placeholder="Your Name"></input>
-	<button class="btn btn-primary" type="submit">Let's Play!</button>
-</form>
-<button ng-click="app.test()">Test</button>
+<div id="player">
+<ul>
+	<li>
+		<section id="question" class="top" ng-repeat="card in players.qcards">
+			<h3>{{card.text}}</h3>
+		</section>
+	</li>
+	<li id="answer">
+		<section class="bottom">
+			<ul>
+				<li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}}<button type="submit" ng-click="players.playCard(player,card.id,card.text, $index)">play</button><span hidden id="confirm">Are You Sure?<button id="submit">Yes</button></span>
+			</ul>
+		</section>
+	</li>
+</div>

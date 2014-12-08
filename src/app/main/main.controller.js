@@ -2,68 +2,126 @@
 
 angular.module('cardistry.main', ['cardistry.cards','firebase'])
 
-  .controller('MainCtrl', function (Deck, $scope, $firebase, Auth) {
-
-  	//firebase gameObject stuff
-  	var ref = new Firebase('https://cardistry.firebaseio.com').child('gameDB')
-  	var sync = $firebase(ref);
-  	var syncObject = sync.$asObject();
-
-  	//firebase profile stuff
-  	var pref = new Firebase('https://cardistry.firebaseio.com').child('gameDB').child('players')
-  	var psync = $firebase(pref)
-  	var psyncArray = psync.$asArray();
-  	var psyncObj = psync.$asObject();
-
-  	//Auth stuff
-  	$scope.auth = Auth;
-    $scope.logIn = function(){
-      $scope.auth.$authWithOAuthPopup("facebook").then(function(authData) {
-        console.log("Logged in as:", authData.facebook.displayName);
-
-      }).catch(function(error) {
-        console.error("Authentication failed: ", error);
-      });
+	.constant('CONFIG', {
+    Firebase: {
+      baseUrl: 'https://cardistry.firebaseio.com/gameDB'
     }
-    $scope.user = $scope.auth.$getAuth();
+  })
 
-    function isNewUser() {
-       if(pref.child($scope.user.uid) === null){
-       	return true;
-       } {
-       	return false;
-       }
-     }
-		
-     console.log(isNewUser())
+  .controller('MainCtrl', function (Deck, $scope, $firebase, Auth, $rootScope, $filter) {
+  	var self = this;
 
-		pref.onAuth(function(authData) {
-  		if (authData && isNewUser) {
-  			$scope.user.firstName = $scope.user.facebook.cachedUserProfile.first_name,
-  			$scope.user.profilePic = $scope.user.facebook.cachedUserProfile.picture.data.url,
-  			psyncObj.$save()
-    		pref.child(authData.uid).set(authData);
- 			 }
-		});
+  	Auth.onAuth(function(user){
+      self.user = user;
+    });
 
-
-  	console.log($scope.user.uid)
-
-  	var Player = function(){
-  		return {
-  			firstName: $scope.user.facebook.cachedUserProfile.first_name,
-  			profilePic: $scope.user.facebook.cachedUserProfile.picture.data.url
-  		}
+  	this.dealIn = function(){
+  		console.log("you're sane")
+  		this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
+  		self.user.$save()
   	}
 
-	  
 	  //locking the viewport	
   	$('html, body').css({'overflow': 'hidden','height': '100%'})
+  	$('#answer').css({'overflow': 'scroll','height': '100%'})
 
 })
 
-  .factory('Auth', function($firebaseAuth){
-		var ref = new Firebase('https://cardistry.firebaseio.com').child('gameDB')
-  	return $firebaseAuth(ref);
+	.controller('PlayerCtrl', function(Deck, $filter, $rootScope, Auth){
+		var self = this;
+  	
+  	Auth.onAuth(function(user){
+      self.user = user;
+    });
+
+  	console.log(self.user)
+
+		this.qcards = $filter('limitTo')(Deck.blackCards, 1)
+		this.acards = self.user.hand
+		self.user.$loaded().then(function(){
+			self.acards = self.user.hand
+			console.log(self.acards)
+		})
+
+		this.playCard = function(player, cardId, cardText, index){
+			this.acards.splice(index, 1);
+			$('li#'+index).remove();
+			console.log(this.acards)
+			this.qcards.splice(index, 1);
+			this.qcards = $filter('limitTo')(Deck.blackCards, 1)
+			this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
+			self.user.$save()
+			// this.acards.$save()
+	}
+})
+
+	.controller('loginPageCtrl', function($rootScope, Auth, $scope, $firebase, $filter, Deck){
+ 
+    this.logIn = Auth.logIn;
+ 
+    this.logOut = Auth.logOut;
+	})
+
+	.factory('FirebaseUrl', function(CONFIG){
+    return new Firebase(CONFIG.Firebase.baseUrl);
   })
+
+  .factory('Auth', function (FirebaseUrl, $firebaseAuth, $firebase, $filter, Deck){
+ 
+    var auth = $firebaseAuth(FirebaseUrl);
+ 
+    return {
+ 
+      /**
+       * Wrapper for '$firebaseAuth.$onAuth()' that filters the
+       * 'auth' object through the 'updateUser()' function
+       */
+      onAuth: function(cb){
+        auth.$onAuth(function(data){
+          cb(updateUser(data));
+        });
+      },
+ 
+      /**
+       * Wrapper for '$firebaseAuth.$authWithOAuthPopup()' that invokes
+       * the correct provider code
+       */
+       logIn: function(){
+         return auth.$authWithOAuthPopup('facebook');
+       },
+ 
+ 
+      // Wrapper for '$firebaseAuth.$unauth()'
+      logOut: function(){
+        auth.$unauth();
+      }
+    }; // END service
+ 
+    /**
+    * Tranform the `authdUser` object from `$firebaseAuth` into a full User
+    * record in the `/users` collection.
+    *
+    * @param {Object} authdUser from $firebaseAuth.getAuth()
+    * @return {Object} from $firebase.$asObject()
+    */
+     function updateUser(authdUser){
+       if ( authdUser === null ){
+         return null;
+      }
+ 			
+      var user = FirebaseUrl.child('players').child(authdUser.facebook.id);
+ 
+      user.update({
+        uid: authdUser.uid,
+        facebook: authdUser.facebook,
+        fullName: authdUser.facebook.displayName,
+        avatarUrl: authdUser.facebook.cachedUserProfile.picture.data.url,
+        homeboy: "jugggaaa"
+      });
+ 
+      var user = $firebase(FirebaseUrl.child('players').child(authdUser.facebook.id)).$asObject();
+ 
+      return user;
+    } // END updateUser
+  }) // END factory(Auth)
 

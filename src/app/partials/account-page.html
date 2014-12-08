@@ -1,9 +1,9 @@
 <div class="account">
-	<section id="accountInfo"><img id="profilePic" src="{{user.profilePic}}"/><span id="greeting">Yo, {{user.firstName}}</span>
+	<section id="accountInfo"><img id="profilePic" src="{{app.user.avatarUrl}}"/><span id="greeting">Yo, {{app.user.fullName}}</span><button ng-show="app.user.hand.length !== 10" id="deal" ng-click="app.dealIn()">Deal Me In!</button>
 	</section>
 	<ul id="gameChoices">
 		<li class="bottom-left" id="cardCzar"><a ui-sref="czar">CZAR</a></li>
-		<li class="bottom-right" id="playerSelect"><a ui-sref="player" ng-click="app.sanityTest()">PLAYER</a></li>
+		<li class="bottom-right" id="playerSelect"><a ui-sref="player">PLAYER</a></li>
 	</ul>
 	</section>
 </div>
