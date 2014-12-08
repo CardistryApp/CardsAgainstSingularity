@@ -1,44 +1,52 @@
 'use strict';
 
-angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router'])
+angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistry.main'
+	])
+
+  .run(function($rootScope, $state) {
+    $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
+      if (error === "AUTH_REQUIRED") {
+        alert("please log in!")
+        $state.go("home");
+      }
+    })
+  })
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('lobby', {
-        url: '/lobby',
-        templateUrl: "app/partials/lobby.html",
-        controller: 'MainCtrl'
+      .state('home', {
+        url: '/',
+        templateUrl: "app/partials/home.html",
+        controller: "loginPageCtrl as login"
       })
-      .state('lobby.players', {
-      	url: '/players',
-      	templateUrl: "app/partials/lobby-players.html",
-      	controller: 'MainCtrl'
-      })
-      .state('lobby.rules', {
-      	url: '/rules',
-      	templateUrl: "app/partials/lobby-rules.html",
-      	controller: 'MainCtrl'
-      })
-      .state('lobby.invite', {
-      	url: '/invite',
-      	templateUrl: "app/partials/lobby-invite.html",
-      	controller: 'MainCtrl'
+      .state('account', {
+        controller: "MainCtrl as app",
+        url: '/account',
+        templateUrl: "app/partials/account-page.html"
+        // resolve: {
+        //   "currentAuth": ["Auth", function(Auth) {
+        //     console.log(Auth)
+        //     return Auth.$waitForAuth();
+        //     }]
+        //   }
       })
       .state('player', {
-      	url: '/player',
-      	templateUrl: 'app/partials/player.html',
-      	controller: 'CardsCtrl'
+        controller: "PlayerCtrl as players",
+        url: '/player',
+        templateUrl: "app/partials/player.html",
+        resolve: {
+          Deck: "Deck"
+        }
       })
-      .state('invite', {
-      	url: '/invite',
-      	templateUrl: 'app/partials/invite.html',
-      	controller: 'MainCtrl'
-      })
-      .state('board', {
-      	url:'/board',
-      	templateUrl: 'app/partials/board.html',
-      	controller: 'MainCtrl'
+      .state('czar', {
+        url: '/player',
+        templateUrl: "app/partials/czar.html"
       })
 
-    $urlRouterProvider.otherwise('/lobby');
-  })
-;
+      .state('about', {
+        url: '/about',
+        templateUrl: "app/partials/about.html"
+      })
+
+    $urlRouterProvider.otherwise('/');
+  });
+
