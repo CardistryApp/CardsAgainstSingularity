@@ -94,6 +94,8 @@ ul li, p{
 
 .bottom-right {
   font-size: 25pt
+  width: 50%;
+  padding-bottom: 55px;
 }
 
 #gameChoices {

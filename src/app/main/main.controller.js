@@ -20,7 +20,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   	}
 })
 
-	.controller('PlayerCtrl', function(Deck, $filter, $rootScope, Auth){
+	.controller('PlayerCtrl', function(Deck, $filter, $scope, Auth, $state){
 		var self = this;
   	
   	Auth.onAuth(function(user){
@@ -42,14 +42,15 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   	}
 
 		this.playCard = function(player, cardId, cardText, index){
-			this.acards.splice(index, 1);
-			$('li#'+index).remove();
-			$('li#'+index).append('test')
-			console.log(this.acards)
-			this.qcards.splice(index, 1);
-			this.qcards = $filter('limitTo')(Deck.blackCards, 1)
-			this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
+			self.acards.splice(index, 1);
+			console.log(self.acards)
+			self.qcards.splice(index, 1);
+			self.qcards = $filter('limitTo')(Deck.blackCards, 1)
+			console.log(self.user.hand)
+			self.acards.push($filter('limitTo')(Deck.whiteCards, 1))
+			self.user.hand = self.acards
 			self.user.$save()
+
 	}
 })
 
@@ -62,7 +63,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 
 	.factory('FirebaseUrl', function(CONFIG){
     return new Firebase(CONFIG.Firebase.baseUrl);
-  })
+ 	 })
 
   .factory('Auth', function (FirebaseUrl, $firebaseAuth, $firebase, $filter, Deck){
  
