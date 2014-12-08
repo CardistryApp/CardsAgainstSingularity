@@ -13,7 +13,7 @@ angular.module('cardistry.cards', [])
     
 		var self = this;  	
 
-  	$http.get('assets/data/cards.JSON').
+  	$http.get('./assets/data/cards.JSON').
   		then(function(deck){
   			angular.forEach(deck.data, function(card){
   				if(card.cardType === "A"){
