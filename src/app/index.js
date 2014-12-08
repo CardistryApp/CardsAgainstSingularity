@@ -23,12 +23,12 @@ angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
         controller: "MainCtrl as app",
         url: '/account',
         templateUrl: "app/partials/account-page.html"
-        // resolve: {
-        //   "currentAuth": ["Auth", function(Auth) {
-        //     console.log(Auth)
-        //     return Auth.$waitForAuth();
-        //     }]
-        //   }
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            console.log(Auth)
+            return Auth.$waitForAuth();
+            }]
+          }
       })
       .state('player', {
         controller: "PlayerCtrl as players",
