@@ -44,5 +44,5 @@ angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
       })
 
     $urlRouterProvider.otherwise('/');
-  })
+  });
 
