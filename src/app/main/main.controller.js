@@ -18,11 +18,6 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   		this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
   		self.user.$save()
   	}
-
-	  //locking the viewport	
-  	// $('html, body').css({'overflow': 'hidden','height': '100%'})
-  	// $('#answer').css({'overflow': 'scroll','height': '100%'})
-
 })
 
 	.controller('PlayerCtrl', function(Deck, $filter, $rootScope, Auth){
