@@ -3,6 +3,7 @@
   padding: 0;
 }
 
+
 body {
   font-family: sans-serif;
 }
@@ -19,11 +20,13 @@ ul {
 
 .thumbnail {
   height: 200px;
+}
 
   img.pull-right {
     width: 50px;
-  }
 }
+
+
 ul li, p{
 	font-size: 20pt;
 }
@@ -35,12 +38,13 @@ ul li, p{
 }
 
 .top p {
-  font-size: 150%;
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 270%;
   padding-bottom: 3ex;
 }
 
 .top {
-  height: 50vh;
+  height: 50%;
   background-color: black;
   color: white; 
 }
@@ -59,9 +63,11 @@ ul li, p{
   padding-top: 3ex;
   padding-bottom: 3ex;
 }
+
 #accountInfo {
-  height: 50vh;
+  height: 39vh;
 }
+
 .bottom-left {
   width: 50%;
   background-color: black;
@@ -81,6 +87,7 @@ ul li, p{
 #gameChoices li {
   display: inline-block;
 }
+
 
 #cardCzar a, #playerSelect a {
   display: inline-block;
@@ -142,3 +149,49 @@ ul li, p{
   padding-top: 29px;
   font-weight: bold;
 }
+
+.about {
+
+  margin-top: -285px;
+  margin-left: 155px;
+  font-weight: 900;
+}
+
+.about a {
+
+    text-decoration: none;
+    color: white;
+}
+
+.about p {
+
+  font-size: 12px;
+  
+}
+
+#horrible {
+
+  font-weight: 900;
+}
+
+h2 {
+
+  padding-left: 2px;
+}
+
+.rules {
+
+  padding-left: 100px;
+
+}
+
+.allabout {
+
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 30px;
+  padding-top: 5px;
+  font-size: 14px;
+
+}
+

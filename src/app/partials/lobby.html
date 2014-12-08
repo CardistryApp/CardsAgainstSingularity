@@ -1,4 +1,20 @@
 <div id="lobby" class="containr">
+
+	<h1>Lobby</h1>
+	<div ui-view></div>
+
+
+<div class="menu">
+<div class="players"><a ui-sref="lobby.players">PLAYERS</a></div>
+
+<div class="rules"><a ui-sref="lobby.rules">RULES</a></div>
+
+<div class="invite"><a ui-sref="lobby.invite">INVITE</a></div>
+
+<div class="start"><a ui-sref="board">START</a></div>
+
+</div>
+
 	<h1>Game Lobby</h1>
 	<ul class="col-md-4">
 		<li><h1><a ui-sref="lobby.players">Players</a></h1></li>
@@ -7,4 +23,5 @@
 		<li><h1><a ui-sref="player">Start!</a></h1></li>
 	</ul>
 	<div class="col-md-8" ui-view></div>
+
 </div>
