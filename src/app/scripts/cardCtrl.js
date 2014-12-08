@@ -10,7 +10,7 @@ angular.module('cardistry.cards', [])
   	
   	this.whiteCards = [];
   	this.blackCards = [];
-
+    
 		var self = this;  	
 
   	$http.get('/assets/data/cards.JSON').
@@ -42,4 +42,4 @@ angular.module('cardistry.cards', [])
 			}
 			return deck;
 			}
-  	})
+  	});
