@@ -60,7 +60,7 @@ ul li, p{
 }
 
 .top {
-  height: 50%;
+  height: 48vh;
   background-color: black;
   color: white; 
 }
@@ -81,7 +81,7 @@ ul li, p{
 }
 
 #accountInfo {
-  height: 40vh;
+  height: 48vh;
 }
 
 .bottom-left {

@@ -7,7 +7,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     }
   })
 
-  .controller('MainCtrl', function (Deck, $scope, $firebase, Auth, $rootScope, $filter) {
+  .controller('MainCtrl', function (Deck, $firebase, Auth, $rootScope, $filter) {
   	var self = this;
 
   	Auth.onAuth(function(user){
@@ -20,7 +20,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   	}
 })
 
-	.controller('PlayerCtrl', function(Deck, $filter, $rootScope, Auth){
+	.controller('PlayerCtrl', function(Deck, $filter, Auth){
 		var self = this;
   	
   	Auth.onAuth(function(user){
@@ -53,7 +53,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 	}
 })
 
-	.controller('loginPageCtrl', function($rootScope, Auth, $scope, $firebase, $filter, Deck){
+	.controller('loginPageCtrl', function($rootScope, Auth, $firebase, $filter, Deck){
  
     this.logIn = Auth.logIn;
  
