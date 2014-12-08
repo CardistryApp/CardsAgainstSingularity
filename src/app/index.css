@@ -219,3 +219,7 @@ h2 {
   height: 40vh;
 }
 
+#questions h3 {
+  padding-top: 15px;
+  padding-left: 12px;
+}
