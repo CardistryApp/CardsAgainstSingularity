@@ -16,14 +16,13 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     });
 
   	this.dealIn = function(){
-  		console.log("you're sane")
   		this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
   		self.user.$save()
   	}
 
 	  //locking the viewport	
-  	$('html, body').css({'overflow': 'hidden','height': '100%'})
-  	$('#answer').css({'overflow': 'scroll','height': '100%'})
+  	// $('html, body').css({'overflow': 'hidden','height': '100%'})
+  	// $('#answer').css({'overflow': 'scroll','height': '100%'})
 
 })
 
@@ -43,18 +42,23 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 			console.log(self.acards)
 		})
 
+		this.dealIn = function(){
+  		this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
+  		self.user.$save()
+  	}
+
 		this.playCard = function(player, cardId, cardText, index){
 			this.acards.splice(index, 1);
 			$('li#'+index).remove();
+			$('li#'+index).append('test')
 			console.log(this.acards)
 			this.qcards.splice(index, 1);
 			this.qcards = $filter('limitTo')(Deck.blackCards, 1)
 			this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
 			self.user.$save()
-			// this.acards.$save()
 	}
 })
-
+	
 	.controller('loginPageCtrl', function($rootScope, Auth, $scope, $firebase, $filter, Deck){
  
     this.logIn = Auth.logIn;

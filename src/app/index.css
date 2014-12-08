@@ -82,7 +82,7 @@ ul li, p{
   display: inline-block;
 }
 
-#cardCzar a {
+#cardCzar a, #playerSelect a {
   display: inline-block;
   padding-top: 100px;
   text-decoration: none;
@@ -91,15 +91,12 @@ ul li, p{
   margin: auto;
   text-align: center;
   padding-bottom: 6ex;
+  font-weight: bold;
 }
 
 #playerSelect a {
-  display: inline-block;
-  font-size: 27pt;
-  text-decoration: none;
   color: black;
-  padding-bottom: 6ex;
-  padding-top: 5ex;
+  font-size: 27pt;
 }
 
 #profilePic {
@@ -110,12 +107,30 @@ ul li, p{
 }
 
 #greeting {
-  font-size: 30pt;
-  display: inline-block;
+  font-size: 27pt;
+  display: block;
   padding: 10px;
-  padding-top: 42px;
+  font-weight: bold;
 }
 
 #confirm {
   font-size: 14pt;
+}
+
+#answerCards{
+  font-weight: bolder;
+  overflow: hidden;
+  margin-top: 16ex;
+}
+
+#answerCards li {
+  display: inline;
+  white-space: nowrap;
+  font-size: 24pt;
+  margin: 4em;
+  overflow: hidden
+}
+
+#player {
+  height: 100vh;
 }
