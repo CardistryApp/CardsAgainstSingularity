@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
-	'cardistry.cards','cardistry.main'
-	])
+angular.module('cardistry', ['ui.router', 'firebase', 'cardistry.cards','cardistry.main'])
 
   .run(function($rootScope, $state) {
     $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
@@ -23,12 +21,6 @@ angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
         controller: "MainCtrl as app",
         url: '/account',
         templateUrl: "app/partials/account-page.html"
-        resolve: {
-          "currentAuth": ["Auth", function(Auth) {
-            console.log(Auth)
-            return Auth.$waitForAuth();
-            }]
-          }
       })
       .state('player', {
         controller: "PlayerCtrl as players",
