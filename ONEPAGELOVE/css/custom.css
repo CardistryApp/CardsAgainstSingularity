@@ -80,9 +80,29 @@ ul {
 .hero {
 
 	background-color: black;
-	margin-left: -158px;
 	margin-top: -70px;
-	padding-right: 1386px;
+	width: 1500px;
+	height: 230px;
+	margin-left: -185px;
+	color: white;
+}
+
+.hero p {
+
+	font-family: 'Hammersmith One', sans-serif;
+	padding-top: 5%;
+	padding-left: 17%;
+	font-size: 500%;
+
+
+}
+
+.co {
+
+	margin-top: -38px;
+	padding-left: 481px;
+	color: white;
+
 }
 
 .intro span {
@@ -91,11 +111,23 @@ ul {
 
 }
 
+.intro p {
+
+	font-size: 20px;
+}
+
+.rules p {
+
+font-size: 20px;
+
+}
+
 .stack {
 
 	padding-left: 30%;
 	color: #602F8D;
 	font-weight: bold;
+	font-size: 20px;
 }
 
 .rules {
@@ -108,32 +140,27 @@ ul {
 	padding-left: 80px;
 }
 
+ol {
+
+	font-size: 20px;
+}
+
 img {
 
 	border-radius: 6%;
 }
 
+.dev2{
 
-	.bio2 {
+margin-left: 50%;
+margin-top: -20%;
+}
 
-		margin-left: 15%;
-		margin-top: -20%;
-	}
+#start {
 
-	.msocial {
-
-	display: inline-block;
-	margin-right: 150px;
-	padding-bottom: 100px;
-	padding-left: 114px;
-	}
-
-	.dev2 {
-
-			}
-
-
-
+	background-color: black;
+	margin-left: -80px;
+}
 
 @media (min-width: 400px) and (max-width: 767px) {
 
@@ -142,6 +169,7 @@ img {
 	margin-left: 35%;
 	margin-bottom: 10%;
 	margin-top: 5%;
+
 	}
 
 	.stack {
@@ -224,13 +252,7 @@ img {
 
 				}
 
-.hero {
 
-	background-color: black;
-	margin-left: -200px;
-	margin-top: -70px;
-	padding-right: 1500px;
-}
 
 }
 
