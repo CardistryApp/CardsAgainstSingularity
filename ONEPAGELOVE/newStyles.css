@@ -1,0 +1,197 @@
+/* Main css for Surf & Paddle */
+
+.main {
+	width: 100%;
+	margin-top: 2%;
+}
+
+p , ol {
+
+	line-height: 2em;
+	font-size: 20px;
+}
+
+.tools {
+
+line-height: 4em;
+font-size: 20px;
+}
+
+
+.container, .container-fluid {
+	padding: 0;
+}
+.page-header {
+	background-color: black;
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+}
+
+.head-img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+}
+
+.header1 {
+	margin: 0;
+	text-align: center;
+	clear: both;
+}
+.header1 p {
+	margin: 0;
+	color: white;
+}
+
+header h1 {
+	color: #fff;
+	margin-top: 0.5ex;
+	margin-bottom: 0;
+	font-family: 'Hammersmith One', sans-serif;
+}
+
+.col-md-8 h1{
+	font-size: 355%;
+	font-family: 'Hammersmith One', sans-serif;
+}
+h1 small {
+	font-size: 30%;
+	color: #123456;
+}
+
+h1, h4 {
+	color: black;
+}
+
+h2 {
+
+	color: white;
+}
+
+a:visited {
+	color:grey;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+.bg-container {
+      position: relative;
+      background: rgba(0,128,255,0.5);
+      overflow: hidden;
+}
+
+.bg-img {
+      display: block;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: -1;
+}
+
+.img {
+      max-width: 100%;
+}
+
+
+
+footer {
+			clear:both;
+			padding-top: 4ex;
+
+}
+
+.sidebar-heading {
+	display:none;
+}
+.row {
+	width: 100%;
+  margin: 0;
+}
+
+.black {
+	background-color: black;
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+}
+
+.white {
+	background-color: white;
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+}
+
+	.stack {
+
+		color: white;
+	}
+}
+@media (min-width: 600px){
+	
+	header h1 {
+		font-size: 350%;
+	}
+	.col-md-8 h1 {
+		font-size: 250%;
+	}
+
+	
+}
+
+@media (min-width: 768px) {
+.header1 {
+	margin: 8% 0 0 0;
+}
+
+.pic {
+	border-radius: 50%;
+}
+
+.col-md-8 h1 {
+	font-size: 450%;
+}
+
+
+@media (min-width: 992px) {
+	
+	.page-header {
+		min-height: 450px;
+	}
+	.main {
+		width: 85%;
+		margin-top: 5%;
+	}
+	
+	.pic {
+		display: inline;
+		float: right;
+	}
+	header h1  {
+		font-size: 600%;
+		font-weight: bolder;
+	}
+	h4 {
+		font-size: 500%;
+		font-weight: bolder;
+		padding: 1ex;
+	}
+
+
+	.black {
+background-color: black;
+position: relative;
+margin: 0;
+overflow: hidden;
+width: 195%;
+margin-left: -58%;
+padding-left: 53%;
+padding-right: 42%;
+}
+
