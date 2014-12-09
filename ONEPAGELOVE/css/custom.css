@@ -1,4 +1,4 @@
-
+@media (min-width: 1200px){
 
 body {
 	margin-left: 5%;
@@ -44,18 +44,14 @@ ul {
 
 /* styling thumbnails and modals */
 
-	.start { 
-    background-color: #602F8D; 
-    border-color: #602F8D; 
+	.btn{ 
+		background-color: black;
     color:white;
-    border-radius: 5%;
-    margin-left: 90px;
+    margin-left: 16px;
+    width: 100%;
 
 }  
-	.start:hover, 
-	.start:focus,  
-	.start:active { 
-   background-color: #53297A; 
+	
 } 
 .modal-body .pull-left { 
     padding-right: 1em; 
@@ -152,109 +148,25 @@ img {
 
 .dev2{
 
-margin-left: 50%;
-margin-top: -20%;
+margin-left: 65%;
+margin-top: -24%;
 }
 
 #start {
 
 	background-color: black;
 	margin-left: -80px;
+
 }
-
-@media (min-width: 400px) and (max-width: 767px) {
-
-		.start {
-	
-	margin-left: 35%;
-	margin-bottom: 10%;
-	margin-top: 5%;
-
-	}
-
-	.stack {
-
-				padding-left: 17%;
-	}
 
 
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-
-	.logo {
-		text-align: center;
-		clear: both;
-		padding-left: 200px;
-
-	}
-
-	.tagline {
-		font-size: 3em;
-		padding-left: 200px;
-		padding-top: 50px;
-		margin-left: -217px;
-		margin-top: 25px;
-
-	}
-
-	.start {
-	
-	margin-left: 40%;
-	margin-bottom: 10%;
-	margin-top: 5%;
-	}
-
-		.stack {
-
-		padding-left: 17%;
-	}
-}
+@media (min-width: 992px){
 
 
 
-@media (min-width: 992px) and (max-width: 1199px) {
 
-	.logo {
-		text-align: center;
-		clear: both;
-		padding-left: 200px;
-
-	}
-
-	.tagline {
-		font-size: 3em;
-		padding-left: -90px;
-		padding-top: 50px;
-		margin-left: -35px;
-		margin-top: 25px;
-	}
-
-	.start {
-
-	margin-left: 40%;
-	margin-bottom: 10%;
-	margin-top: 5%;
-
-				}
-
-			}
-
-
-@media (min-width: 1200px) {
-
-
-.start {
-
-	margin-left: 40%;
-	margin-bottom: 10%;
-	margin-top: 5%;
-
-				}
-
-
-
-}
 
 
 
