@@ -3,10 +3,23 @@
   padding: 0;
 }
 
+#answerCards li {
+ 
+  color: black;
+  font-size: 24pt;
+  list-style-type: none;
+  padding-bottom: 100%;
+  display: none;
 
-#ansWrap {
+}
 
-  color: green;
+#answerCards li:nth-child(1){
+
+  display: block;
+}
+
+.active {
+  display: block;
 }
 
 .chevron::before {
@@ -16,28 +29,30 @@ content: '';
 display: inline-block;
 height: 0.45em;
 position: relative;
-top: -2.85em;
+top: -3.85em;
 vertical-align: bottom;
 width: 0.45em;
 margin-left: 15px;
 }
 
 .chevron.right:before {
-  
-left: 82%;
-top: -1.85em;
+
+left: 71%;
+top: -71px;
 transform: rotate(45deg);
+position: relative;
+padding: 14px;
 }
 
 
 .chevron.left:before {
-  left: 0.25em;
+
+  left: 0.75em;
   transform: rotate(-135deg);
+  position: relative;
+  top: -120px;
+  padding: 15px;
 }
-
-
-
-
 
 
 
@@ -178,18 +193,11 @@ ul li, p{
 }
 
 #answerCards{
-  font-weight: bolder;
-  overflow: hidden;
-  margin-top: 16ex;
+
+overflow: hidden;
+
 }
 
-#answerCards li {
-  display: inline;
-  white-space: nowrap;
-  font-size: 24pt;
-  margin: 4em;
-  overflow: hidden
-}
 
 #player {
   height: 100vh;
@@ -253,10 +261,26 @@ h2 {
 
 #questions {
   background-color: black;
-  height: 40vh;
+  height: 50vh;
 }
 
 #questions h3 {
   padding-top: 15px;
   padding-left: 12px;
 }
+
+  .submit {
+
+  position: absolute;
+  top: 86ex;
+  left: 17ex;
+  width: 120px;
+  height: 43px;
+  background-color: black;
+  color: white;
+  }
+
+  #btn {
+  font-size: 30px;
+  font-weight: bold;
+  }

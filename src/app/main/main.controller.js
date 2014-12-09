@@ -27,6 +27,33 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
       self.user = user;
     });
 
+    $("#answerCards li").hide();
+      $("#answerCards li:first-child").show();
+      var total = $("#answerCards li").length;
+      var count = 0;
+      $(".right").click( function() {
+        $("#answerCards li:nth-child("+count+")").hide();
+        count++;
+        if (count === total) {
+          count = 0;
+        }
+        $("#answerCards li:nth-child("+count+")").show();
+        return false;
+      })
+      $(".left").click( function() {
+        $("#answerCards li:nth-child("+count+")").hide();
+        count--;
+        if (count === total) {
+          count = 0;
+        }
+        $("#answerCards li:nth-child("+count+")").show();
+        return false;
+      });
+
+
+
+    $('html, body').css({'overflow': 'hidden','height': '100%'})
+
   	console.log(self.user)
 
 		this.qcards = $filter('limitTo')(Deck.blackCards, 1)

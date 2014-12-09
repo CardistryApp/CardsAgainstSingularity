@@ -9,14 +9,24 @@
 
 
 	<h3 id="answer">
-		<section id="answerCards" class="bottom">
-				<div id="ansWrap"><li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}}<button type="submit" ng-click="players.playCard(player,card.id,card.text, $index)">play</button><span hidden id="confirm">Are You Sure?<button id="submit">Yes</button></span><button ng-show="players.acards.length < 10" ng-click="players.dealIn" id="cardBack">Gimme a card!</button></div>
-		</section>
+		<div id="ansWrap">
+			<ul id="answerCards" class="bottom img-fulid">
+
+				<li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}} 
+				
+			</ul>
+		</div>
 	</li>
 </div>
 
-<p><span class="chevron right"></span>
-<p><span class="chevron left"></span>
+
+<button class="submit"><span id="btn">Play</span></button>
+
+<p><span class="chevron right">RIGHT</span></p>
+<p><span class="chevron left">LEFT</span></p>
 
 
 
+
+
+         
