@@ -1,5 +1,3 @@
-/* Main css for Surf & Paddle */
-
 .main {
 	width: 100%;
 	margin-top: 2%;
@@ -58,10 +56,7 @@ header h1 {
 	font-size: 355%;
 	font-family: 'Hammersmith One', sans-serif;
 }
-h1 small {
-	font-size: 30%;
-	color: #123456;
-}
+
 
 h1, h4 {
 	color: black;
@@ -69,7 +64,7 @@ h1, h4 {
 
 h2 {
 
-	color: white;
+	color: black;
 }
 
 a:visited {
@@ -101,8 +96,10 @@ a {
 
 
 footer {
-			clear:both;
+
 			padding-top: 4ex;
+			text-align: center;
+
 
 }
 
@@ -116,9 +113,7 @@ footer {
 
 .black {
 	background-color: black;
-	position: relative;
-	margin: 0;
-	overflow: hidden;
+
 }
 
 .white {
@@ -132,6 +127,16 @@ footer {
 
 		color: white;
 	}
+
+	.rules {
+
+		background-color: black;
+		color: white;
+		margin: 0 -15px;
+    padding: 0 15px;
+	}
+
+	
 }
 @media (min-width: 600px){
 	
@@ -141,6 +146,8 @@ footer {
 	.col-md-8 h1 {
 		font-size: 250%;
 	}
+
+
 
 	
 }
@@ -184,14 +191,7 @@ footer {
 	}
 
 
-	.black {
-background-color: black;
-position: relative;
-margin: 0;
-overflow: hidden;
-width: 195%;
-margin-left: -58%;
-padding-left: 53%;
-padding-right: 42%;
-}
+
+
+
 
