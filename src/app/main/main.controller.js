@@ -20,7 +20,8 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   	}
 })
 
-	.controller('PlayerCtrl', function(Deck, $filter, $scope, Auth, $state){
+	.controller('PlayerCtrl', function(Deck, $filter, $scope, Auth){
+
 		var self = this;
   	
   	Auth.onAuth(function(user){
@@ -31,7 +32,10 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
       $("#answerCards li:first-child").show();
       var total = $("#answerCards li").length;
       var count = 0;
-      $(".right").click( function() {
+
+
+
+        this.rightClick = function() {
         $("#answerCards li:nth-child("+count+")").hide();
         count++;
         if (count === total) {
@@ -39,7 +43,15 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
         }
         $("#answerCards li:nth-child("+count+")").show();
         return false;
-      })
+      }
+
+
+
+
+
+
+
+
       $(".left").click( function() {
         $("#answerCards li:nth-child("+count+")").hide();
         count--;
@@ -56,7 +68,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 
   	console.log(self.user)
 
-		this.qcards = $filter('limitTo')(Deck.blackCards, 1)
+		this.qcards = $filter('limitTo')(Deck.blackCards, 5)
 		this.acards = self.user.hand
 		self.user.$loaded().then(function(){
 			self.acards = self.user.hand
@@ -68,15 +80,10 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   		self.user.$save()
   	}
 
-		this.playCard = function(player, cardId, cardText, index){
-			self.acards.splice(index, 1);
-			console.log(self.acards)
-			self.qcards.splice(index, 1);
-			self.qcards = $filter('limitTo')(Deck.blackCards, 1)
-			console.log(self.user.hand)
-			self.acards.push($filter('limitTo')(Deck.whiteCards, 1))
-			self.user.hand = self.acards
-			self.user.$save()
+		this.playCard = function(index){
+      self.acards.splice(index, 1);
+			this.qcards.shift();
+      this.rightClick()
 
 	}
 })
