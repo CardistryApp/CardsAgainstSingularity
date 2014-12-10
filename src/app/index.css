@@ -270,17 +270,34 @@ h2 {
 }
 
   .submit {
-
-  position: absolute;
-  top: 86ex;
-  left: 17ex;
-  width: 120px;
-  height: 43px;
-  background-color: black;
-  color: white;
-  }
+position: absolute;
+top: 50ex;
+left: 17ex;
+width: 120px;
+height: 43px;
+background-color: black;
+color: white;
+}
 
   #btn {
   font-size: 30px;
   font-weight: bold;
   }
+
+ .fa-arrow-right:before {
+content: "\f061";
+position: absolute;
+top: 297px;
+margin-left: 85%;
+}
+
+.fa-arrow-left:before {
+content: "\f060";
+position: absolute;
+top: 297px;
+margin-left: 8%;
+}
+
+
+
+
