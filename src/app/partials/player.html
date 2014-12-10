@@ -8,11 +8,12 @@
 	</ul>
 
 
+
 <div class="buttons">
 
-<button class="submit"><span id="btn">Play</span></button>
+<p><span ng-click="players.rightClick(card)"class="fa fa-arrow-right right"></span></p>
 
-<p><span class="fa fa-arrow-right right"></span></p>
+
 <p><span class="fa fa-arrow-left left"></span></p>
 
 </div>
@@ -22,11 +23,18 @@
 			<ul id="answerCards" class="bottom img-fulid">
 
 				<li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}} 
-				
+				<button class="submit" ng-click="players.playCard($index)"><span id="btn">Play</span></button>
+			</li>
+
+			<li ng-show ng-repeat="card in players.acards" id="{{$index}}">{{card.text}} 
+				<button class="submit" ng-click="players.playCard($index)"><span id="btn">Play</span></button>
+			</li>
+
 			</ul>
 		</div>
 	</li>
 </div>
+
 
 
 
