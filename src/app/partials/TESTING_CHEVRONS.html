@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-app="" ng-controller="myController">
+
+<button ng-click="prev = prev - 1">prev</button>
+
+<button ng-click="next = next + 1">next</button>
+
+<p>{{ prev }}</p>
+
+<p>{{ next }}</p>
+
+</div>
+
+
+<script>
+
+function myController($scope) {
+  
+    $scope.prev = 0;
+}
+</script> 
+
+</body>
+</html>
