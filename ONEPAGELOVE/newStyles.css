@@ -13,6 +13,7 @@ p , ol {
 
 line-height: 4em;
 font-size: 20px;
+text-align: center;
 }
 
 
@@ -60,11 +61,13 @@ header h1 {
 
 h1, h4 {
 	color: black;
+	text-align: center;
 }
 
 h2 {
 
 	color: black;
+	text-align: center;
 }
 
 a:visited {
@@ -99,9 +102,11 @@ footer {
 
 			padding-top: 4ex;
 			text-align: center;
-
+			background-color: black;
+			color: white;
 
 }
+
 
 .sidebar-heading {
 	display:none;
@@ -136,6 +141,10 @@ footer {
     padding: 0 15px;
 	}
 
+	.QA {
+
+		text-align: center;
+	}
 	
 }
 @media (min-width: 600px){
@@ -189,9 +198,4 @@ footer {
 		font-weight: bolder;
 		padding: 1ex;
 	}
-
-
-
-
-
 
