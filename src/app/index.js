@@ -38,7 +38,8 @@ angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistr
         }
       })
       .state('czar', {
-        url: '/player',
+        controller: "PlayerCtrl as players",
+        url: '/czar',
         templateUrl: "app/partials/czar.html"
       })
 

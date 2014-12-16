@@ -11,10 +11,9 @@
 
 <div class="buttons">
 
-<p><span ng-click="players.rightClick(card)"class="fa fa-arrow-right right"></span></p>
+<p><span ng-click="players.playCard($index)" class="fa fa-thumbs-up thumbs"></span></p>
 
-
-<p><span class="fa fa-arrow-left left"></span></p>
+<p><span ng-click="players.playCard($index)" class="fa fa-thumbs-down thumbs"></span></p>
 
 </div>
 
@@ -23,16 +22,9 @@
 			<ul id="answerCards" class="bottom img-fulid">
 
 				<li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}} 
-					<button class="submit" ng-click="players.playCard($index)">
-						<span id="btn">Play</span></button>
+
 				</li>
 			</ul>
 		</div>
 		<span ui-sref="account"class="fa fa-home fa-2x home"></span>
 </div>
-
-
-
-
-
-         

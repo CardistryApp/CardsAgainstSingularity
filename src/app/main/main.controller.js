@@ -19,10 +19,16 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   	this.dealIn = function(){
       Deck2.load().then(Deck2.shuffle).then(function(deck){
         self.user.deck = deck
-  		  self.user.hand = Deck2.nextWhite(self.user.deck.white)
+  		  self.user.hand = Deck2.nextWhite(self.user.deck.white, 10)
   		  self.user.$save()
       })
   	}
+
+    this.getCard = function(){
+      console.log(self.user.hand)
+      self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, 1))
+      self.user.$save()
+    }
 })
 
 	.controller('PlayerCtrl', function(Deck, $filter, $scope, Auth){

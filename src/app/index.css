@@ -19,6 +19,8 @@
   list-style-type: none;
   padding-bottom: 100%;
   display: none;
+  padding-top: 15px;
+  padding-left: 11px;
 
 }
 
@@ -310,6 +312,23 @@ top: 297px;
 margin-left: 8%;
 }
 
+.home {
+  position: absolute;
+  top: 24ex;
+  left: 3.75em;
+}
 
+.fa-thumbs-down:before {
+font-size: 41px;
+position: absolute;
+left: 27px;
+top: 297px;
+}
 
+.fa-thumbs-up:before {
+font-size: 41px;
+position: absolute;
+top: 297px;
+right: 38px;
+}
 

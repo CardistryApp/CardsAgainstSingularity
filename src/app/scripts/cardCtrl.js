@@ -40,15 +40,17 @@ angular.module('cardistry.cards', [])
           card.priority = Math.floor(Math.random() * 
             (Object.keys(service.cards.black).length - 1) + 1);
         })
-        console.log(service.cards.white)
+        // console.log(service.cards.white)
         return service.cards
       }, // END SHUFFLE
 
-      nextWhite: function(deck){ // selecting the next lowest priority, if at 10 trigger shuffle
+      nextWhite: function(deck, numDeal){ // selecting the next lowest priority, if at 10 trigger shuffle
         deck.sort(function(obj1, obj2){
           return obj2.priority - obj1.priority;
         });
-        return deck
+        var hand = deck.slice(0, numDeal)
+        console.log(hand)
+        return hand
       }, //END NEXTWHITE
 
       nextBlack: function(){ // selecting the next lowest priority, when at 0, trigger shuffle
