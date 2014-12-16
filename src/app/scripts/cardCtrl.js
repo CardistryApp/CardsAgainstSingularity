@@ -7,8 +7,8 @@ angular.module('cardistry.cards', [])
       load: function(){
         return $http.get('/assets/data/cards.JSON').then(function(deck){
           service.cards = {};
-          service.cards.white = {}
-          service.cards.black = {}
+          service.cards.white = []
+          service.cards.black = []
           var cards = deck.data
           for(var i = 0; i < cards.length; i++)
             if(cards[i].cardType === "A"){
@@ -16,7 +16,6 @@ angular.module('cardistry.cards', [])
               service.cards.white[cards[i].id] = {
                 text: cards[i].text,
                 priority: 0,
-                type: cards[i].cardType,
                 expansion: cards[i].expansion
               }
             }
@@ -25,14 +24,38 @@ angular.module('cardistry.cards', [])
               service.cards.black[cards[i].id] = {
                 text: cards[i].text,
                 priority: 0,
-                type: cards[i].cardType,
                 expansion: cards[i].expansion
               }
             }
           }
         }) //END PROMISE RETURN
-      } // END LOAD
-    } //END SERVICE
+      }, // END LOAD
+
+      shuffle: function(){ // adding random number to priority property of object
+        angular.forEach(service.cards.white, function(card){
+          card.priority = Math.floor(Math.random() * 
+            (Object.keys(service.cards.white).length - 1) + 1);
+        })
+        angular.forEach(service.cards.black, function(card){
+          card.priority = Math.floor(Math.random() * 
+            (Object.keys(service.cards.black).length - 1) + 1);
+        })
+        console.log(service.cards.white)
+        return service.cards
+      }, // END SHUFFLE
+
+      nextWhite: function(deck){ // selecting the next lowest priority, if at 10 trigger shuffle
+        deck.sort(function(obj1, obj2){
+          return obj2.priority - obj1.priority;
+        });
+        return deck
+      }, //END NEXTWHITE
+
+      nextBlack: function(){ // selecting the next lowest priority, when at 0, trigger shuffle
+
+      } //END NEXTBLACK
+
+    }; //END SERVICE
     return service;
   })
 

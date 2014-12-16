@@ -7,16 +7,21 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     }
   })
 
-  .controller('MainCtrl', function (Deck, $scope, $firebase, Auth, $rootScope, $filter) {
+  .controller('MainCtrl', function (Deck, $scope, $firebase, Auth, $filter, Deck2) {
   	var self = this;
+
+    console.log(Deck2.load().then(Deck2.shuffle))
 
   	Auth.onAuth(function(user){
       self.user = user;
     });
 
   	this.dealIn = function(){
-  		this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
-  		self.user.$save()
+      Deck2.load().then(Deck2.shuffle).then(function(deck){
+        self.user.deck = deck
+  		  self.user.hand = Deck2.nextWhite(self.user.deck.white)
+  		  self.user.$save()
+      })
   	}
 })
 
@@ -88,7 +93,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 	}
 })
 
-	.controller('loginPageCtrl', function($rootScope, Auth, $scope, $firebase, $filter, Deck){
+	.controller('loginPageCtrl', function(Auth, $scope, $firebase, $filter, Deck){
  
     this.logIn = Auth.logIn;
  
