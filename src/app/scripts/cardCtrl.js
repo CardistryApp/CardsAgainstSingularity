@@ -49,7 +49,9 @@ angular.module('cardistry.cards', [])
           return obj2.priority - obj1.priority;
         });
         var hand = deck.slice(0, numDeal)
-        console.log(hand)
+        angular.forEach(hand, function(card){
+          card.priority = 0;
+        })
         return hand
       }, //END NEXTWHITE
 

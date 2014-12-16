@@ -24,9 +24,10 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
       })
   	}
 
-    this.getCard = function(){
+    this.getCard = function(num){
+      num = 1
       console.log(self.user.hand)
-      self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, 1))
+      self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, num))
       self.user.$save()
     }
 })
@@ -39,64 +40,6 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
       self.user = user;
     });
 
-    $("#answerCards li").hide();
-      $("#answerCards li:first-child").show();
-      var total = $("#answerCards li").length;
-      var count = 0;
-
-
-
-        this.rightClick = function() {
-        $("#answerCards li:nth-child("+count+")").hide();
-        count++;
-        if (count === total) {
-          count = 0;
-        }
-        $("#answerCards li:nth-child("+count+")").show();
-        return false;
-      }
-
-
-
-
-
-
-
-
-      $(".left").click( function() {
-        $("#answerCards li:nth-child("+count+")").hide();
-        count--;
-        if (count === total) {
-          count = 0;
-        }
-        $("#answerCards li:nth-child("+count+")").show();
-        return false;
-      });
-
-
-
-    $('html, body').css({'overflow': 'hidden','height': '100%'})
-
-  	console.log(self.user)
-
-		this.qcards = $filter('limitTo')(Deck.blackCards, 5)
-		this.acards = self.user.hand
-		self.user.$loaded().then(function(){
-			self.acards = self.user.hand
-			console.log(self.acards)
-		})
-
-		this.dealIn = function(){
-  		this.user.hand = $filter('limitTo')(Deck.whiteCards, 10)
-  		self.user.$save()
-  	}
-
-		this.playCard = function(index){
-      self.acards.splice(index, 1);
-			this.qcards.shift();
-      this.rightClick()
-
-	}
 })
 
 	.controller('loginPageCtrl', function(Auth, $scope, $firebase, $filter, Deck){

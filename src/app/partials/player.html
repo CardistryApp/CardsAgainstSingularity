@@ -1,7 +1,7 @@
 <div id="player">
 	<ul id="questions">
 		<li>
-			<section id="question" class="top" ng-repeat="card in players.qcards">
+			<section id="question" class="top" ng-repeat="card in players.user.deck.black">
 				<h3>{{card.text}}</h3>
 			</section>
 		</li>
@@ -22,7 +22,7 @@
 		<div id="ansWrap">
 			<ul id="answerCards" class="bottom img-fulid">
 
-				<li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}} 
+				<li ng-repeat="card in players.user.hand" id="{{$index}}">{{card.text}} 
 					<button class="submit" ng-click="players.playCard($index)">
 						<span id="btn">Play</span></button>
 				</li>
