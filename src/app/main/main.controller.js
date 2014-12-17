@@ -67,6 +67,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
       }
       var index = self.user.hand.indexOf(card)
       self.user.hand.splice(index, 1)
+      self.user.deck.black.splice(0, 1)
       self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, 1))
       self.user.$save()
       console.log(this.chosenCard)

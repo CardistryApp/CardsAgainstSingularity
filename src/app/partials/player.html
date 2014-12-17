@@ -15,9 +15,10 @@
 	<h3 id="answer">
 		<div id="ansWrap">
 			<ul id="answerCards" class="bottom img-fulid">
-				<li ng-repeat="card in players.user.hand" ng-show="players.cardIndex == $index">{{card.text}} 
+				<li ng-repeat="card in players.user.hand" 
+					ng-show="players.cardIndex == $index">{{card.text}} 
 					<button class="submit" ng-click="players.playCard(card)">
-						<span id="btn">Play</span></button>
+					<span id="btn">Play</span></button>
 				</li>
 			</ul>
 		</div>
