@@ -31,16 +31,22 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     }
 })
 
-	.controller('PlayerCtrl', function($filter, $scope, Auth, Deck2){
+	.controller('PlayerCtrl', function($filter, $scope, Auth, Deck2, FirebaseUrl, $firebase){
     var self = this;
 
   	Auth.onAuth(function(user){
       self.user = user;
     });
 
+    var cardCzar = FirebaseUrl.child('cardCzar')
+
+    var sync = $firebase(cardCzar)
+
     this.hand = self.user.hand
     this.cardIndex = 0;
-    this.chosenCard = {};
+    this.chosenCard = sync.$asArray();
+
+    console.log(this.chosenCard)
 
     this.next = function(){
       if(self.cardIndex >= self.user.hand.length - 1) {
@@ -58,13 +64,12 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
       }
     };
 
-
     this.playCard = function(card, question){
-      self.chosenCard = {
-        question: self.user.deck.black[0].text,
-        answer: card.text,
-        user: self.user.uid
-      }
+      self.chosenCard.$add({
+              question: self.user.deck.black[0].text,
+              answer: card.text,
+              user: self.user.uid
+            })
       var index = self.user.hand.indexOf(card)
       self.user.hand.splice(index, 1)
       self.user.deck.black.splice(0, 1)
