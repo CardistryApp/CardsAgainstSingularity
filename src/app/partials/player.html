@@ -1,28 +1,22 @@
 <div id="player">
 	<ul id="questions">
 		<li>
-			<section id="question" class="top" ng-repeat="card in players.user.deck.black">
-				<h3>{{card.text}}</h3>
+			<section id="question" class="top" ng-repeat="question in players.user.deck.black">
+				<h3>{{question.text}}</h3>
 			</section>
 		</li>
 	</ul>
 
-
-
 <div class="buttons">
-
-<p><span ng-click="players.next()" class="fa fa-arrow-right right"></span></p>
-
-
-<p><span ng-click="players.prev()" class="fa fa-arrow-left left"></span></p>
-
+	<p><span ng-click="players.next()" class="fa fa-arrow-right right"></span></p>
+	<p><span ng-click="players.prev()" class="fa fa-arrow-left left"></span></p>
 </div>
 
 	<h3 id="answer">
 		<div id="ansWrap">
 			<ul id="answerCards" class="bottom img-fulid">
 				<li ng-repeat="card in players.user.hand" ng-show="players.cardIndex == $index">{{card.text}} 
-					<button class="submit" ng-click="players.playCard($index)">
+					<button class="submit" ng-click="players.playCard(card)">
 						<span id="btn">Play</span></button>
 				</li>
 			</ul>

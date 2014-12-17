@@ -7,7 +7,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     }
   })
 
-  .controller('MainCtrl', function (Deck, $scope, $firebase, Auth, $filter, Deck2) {
+  .controller('MainCtrl', function ($scope, $firebase, Auth, $filter, Deck2) {
   	var self = this;
 
     console.log(Deck2.load().then(Deck2.shuffle))
@@ -25,19 +25,19 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
   	}
 
     this.getCard = function(num){
-      num = 1
       console.log(self.user.hand)
       self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, num))
       self.user.$save()
     }
 })
 
-	.controller('PlayerCtrl', function(Deck, $filter, $scope, Auth){
+	.controller('PlayerCtrl', function($filter, $scope, Auth, Deck2){
     var self = this;
-  	
+
   	Auth.onAuth(function(user){
       self.user = user;
     });
+
     this.hand = self.user.hand
     this.cardIndex = 0;
     this.chosenCard = {};
@@ -45,21 +45,32 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     this.next = function(){
       if(self.cardIndex >= self.user.hand.length - 1) {
         this.cardIndex = 0;
-      }
-      else {
+      } else {
         this.cardIndex++;
       }
     };
 
     this.prev = function(){
       if(self.cardIndex <= 0) {
-        this.cardIndex = 10;
-      }
-      else {
+        this.cardIndex = 9;
+      } else {
         this.cardIndex--;
       }
     };
 
+
+    this.playCard = function(card, question){
+      self.chosenCard = {
+        question: self.user.deck.black[0].text,
+        answer: card.text,
+        user: self.user.uid
+      }
+      var index = self.user.hand.indexOf(card)
+      self.user.hand.splice(index, 1)
+      self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, 1))
+      self.user.$save()
+      console.log(this.chosenCard)
+    }
 })
 
 	.controller('loginPageCtrl', function(Auth, $scope, $firebase, $filter, Deck){
