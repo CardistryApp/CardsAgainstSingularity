@@ -11,18 +11,17 @@
 
 <div class="buttons">
 
-<p><span ng-click="players.rightClick(card)"class="fa fa-arrow-right right"></span></p>
+<p><span ng-click="players.next()" class="fa fa-arrow-right right"></span></p>
 
 
-<p><span class="fa fa-arrow-left left"></span></p>
+<p><span ng-click="players.prev()" class="fa fa-arrow-left left"></span></p>
 
 </div>
 
 	<h3 id="answer">
 		<div id="ansWrap">
 			<ul id="answerCards" class="bottom img-fulid">
-
-				<li ng-repeat="card in players.user.hand" id="{{$index}}">{{card.text}} 
+				<li ng-repeat="card in players.user.hand" ng-show="players.cardIndex == $index">{{card.text}} 
 					<button class="submit" ng-click="players.playCard($index)">
 						<span id="btn">Play</span></button>
 				</li>

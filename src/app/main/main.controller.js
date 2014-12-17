@@ -33,12 +33,32 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 })
 
 	.controller('PlayerCtrl', function(Deck, $filter, $scope, Auth){
-
-		var self = this;
+    var self = this;
   	
   	Auth.onAuth(function(user){
       self.user = user;
     });
+    this.hand = self.user.hand
+    this.cardIndex = 0;
+    this.chosenCard = {};
+
+    this.next = function(){
+      if(self.cardIndex >= self.user.hand.length - 1) {
+        this.cardIndex = 0;
+      }
+      else {
+        this.cardIndex++;
+      }
+    };
+
+    this.prev = function(){
+      if(self.cardIndex <= 0) {
+        this.cardIndex = 10;
+      }
+      else {
+        this.cardIndex--;
+      }
+    };
 
 })
 
