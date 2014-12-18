@@ -1,4 +1,4 @@
-<div id="player" ng-repeat="card in players.chosenCard | limitTo: 1">
+<div id="player" ng-repeat="card in players.chosenCard" ng-show="players.cardIndex == $index">
 	<ul id="questions">
 		<li>
 			<section id="question" class="top">
@@ -11,7 +11,7 @@
 
 <div class="buttons">
 
-<p><span ng-click="players.funny()" class="fa fa-thumbs-up thumbs"></span></p>
+<p><span ng-click="players.funny(card.user)" class="fa fa-thumbs-up thumbs"></span></p>
 
 <p><span ng-click="players.notFunny()" class="fa fa-thumbs-down thumbs"></span></p>
 
@@ -26,5 +26,5 @@
 				</li>
 			</ul>
 		</div>
-		<span ui-sref="account"class="fa fa-home fa-2x home"></span>
+		<span ui-sref="home"class="fa fa-home fa-2x home"></span>
 </div>

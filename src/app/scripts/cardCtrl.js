@@ -60,4 +60,4 @@ angular.module('cardistry.cards', [])
 
     }; //END SERVICE
     return service;
-  })
+  });
