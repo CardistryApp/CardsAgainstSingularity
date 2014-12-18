@@ -1,45 +1,33 @@
 'use strict';
 
-angular.module('cardistry', ['ui.router', 'firebase', 'cardistry.cards','cardistry.main'])
+angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistry.main'])
 
-  .run(function($rootScope, $state) {
-    $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
-      if (error === "AUTH_REQUIRED") {
-        alert("please log in!")
-        $state.go("home");
-      }
-    })
-  })
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
+      .state('login', {
         url: '/',
-        templateUrl: "app/partials/home.html",
+        templateUrl: "app/partials/login.html",
         controller: "loginPageCtrl as login"
       })
-      .state('account', {
-        controller: "MainCtrl as app",
-        url: '/account',
-        templateUrl: "app/partials/account-page.html"
+      .state('home', {
+        url: '/home',
+        templateUrl: "app/partials/home.html",
+        controller: "MainCtrl as app"
       })
       .state('player', {
-        controller: "PlayerCtrl as players",
         url: '/player',
         templateUrl: "app/partials/player.html",
-        resolve: {
-          Deck: "Deck"
-        }
+        controller: "PlayerCtrl as players"
       })
       .state('czar', {
-        url: '/player',
-        templateUrl: "app/partials/czar.html"
+        url: '/czar',
+        templateUrl: "app/partials/czar.html",
+        controller: "PlayerCtrl as players"
       })
-
       .state('about', {
         url: '/about',
         templateUrl: "app/partials/about.html"
       })
-
     $urlRouterProvider.otherwise('/');
   });
 

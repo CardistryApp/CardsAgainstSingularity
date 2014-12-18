@@ -3,6 +3,66 @@
   padding: 0;
 }
 
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+}
+
+#answerCards li {
+ 
+  color: black;
+  font-size: 24pt;
+  list-style-type: none;
+  padding-left: 11px;
+
+}
+
+#answerCards li:nth-child(1){
+
+  display: block;
+}
+
+.active {
+  display: block;
+}
+
+.chevron::before {
+border-style: solid;
+border-width: 0.25em 0.25em 0 0;
+content: '';
+display: inline-block;
+height: 0.45em;
+position: relative;
+top: -3.85em;
+vertical-align: bottom;
+width: 0.45em;
+margin-left: 15px;
+}
+
+.chevron.right:before {
+
+left: 71%;
+top: -71px;
+transform: rotate(45deg);
+position: relative;
+padding: 14px;
+}
+
+
+.chevron.left:before {
+
+  left: 0.75em;
+  transform: rotate(-135deg);
+  position: relative;
+  top: -120px;
+  padding: 15px;
+}
+
+
 
 body {
   font-family: sans-serif;
@@ -94,6 +154,8 @@ ul li, p{
 
 .bottom-right {
   font-size: 25pt
+  width: 50%;
+  padding-bottom: 55px;
 }
 
 #gameChoices {
@@ -141,18 +203,11 @@ ul li, p{
 }
 
 #answerCards{
-  font-weight: bolder;
-  overflow: hidden;
-  margin-top: 16ex;
+
+overflow: hidden;
+
 }
 
-#answerCards li {
-  display: inline;
-  white-space: nowrap;
-  font-size: 24pt;
-  margin: 4em;
-  overflow: hidden
-}
 
 #player {
   height: 100vh;
@@ -216,7 +271,62 @@ h2 {
 
 #questions {
   background-color: black;
-  height: 40vh;
+  height: 50vh;
+  overflow: hidden;
+}
+
+#questions h3 {
+  padding-top: 15px;
+  padding-left: 12px;
+}
+
+  .submit {
+position: absolute;
+top: 50ex;
+left: 17ex;
+width: 120px;
+height: 43px;
+background-color: black;
+color: white;
+}
+
+  #btn {
+  font-size: 30px;
+  font-weight: bold;
+  }
+
+ .fa-arrow-right:before {
+content: "\f061";
+position: absolute;
+top: 297px;
+margin-left: 85%;
+}
+
+.fa-arrow-left:before {
+content: "\f060";
+position: absolute;
+top: 297px;
+margin-left: 8%;
+}
+
+.home {
+  position: absolute;
+  top: 24ex;
+  left: 3.75em;
+}
+
+.fa-thumbs-down:before {
+font-size: 41px;
+position: absolute;
+left: 27px;
+top: 297px;
+}
+
+.fa-thumbs-up:before {
+font-size: 41px;
+position: absolute;
+top: 297px;
+right: 38px;
 }
 
 #questions h3 {

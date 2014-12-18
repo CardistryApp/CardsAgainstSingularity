@@ -1,14 +1,32 @@
 <div id="player">
 	<ul id="questions">
 		<li>
-			<section id="question" class="top" ng-repeat="card in players.qcards">
-				<h3>{{card.text}}</h3>
+			<section id="question" class="top" ng-repeat="question in players.user.deck.black">
+				<h3>{{question.text}}</h3>
 			</section>
 		</li>
 	</ul>
-	<h3 id="answer">
-		<section id="answerCards" class="bottom">
-				<div id="ansWrap"><li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}}<button type="submit" ng-click="players.playCard(player,card.id,card.text, $index)">play</button><span hidden id="confirm">Are You Sure?<button id="submit">Yes</button></span><button ng-show="players.acards.length < 10" ng-click="players.dealIn" id="cardBack">Gimme a card!</button></div>
-		</section>
-	</li>
+
+<div class="buttons">
+	<p><span ng-click="players.next()" class="fa fa-arrow-right right"></span></p>
+	<p><span ng-click="players.prev()" class="fa fa-arrow-left left"></span></p>
 </div>
+
+	<h3 id="answer">
+		<div id="ansWrap">
+			<ul id="answerCards" class="bottom img-fulid">
+				<li ng-repeat="card in players.user.hand" 
+					ng-show="players.cardIndex == $index">{{card.text}} 
+					<button class="submit" ng-click="players.playCard(card)">
+					<span id="btn">Play</span></button>
+				</li>
+			</ul>
+		</div>
+		<span ui-sref="home"class="fa fa-home fa-2x home"></span>
+</div>
+
+
+
+
+
+         
