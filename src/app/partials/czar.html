@@ -1,8 +1,8 @@
-<div id="player">
+<div id="player" ng-repeat="card in players.chosenCard | limitTo: 1">
 	<ul id="questions">
 		<li>
-			<section id="question" class="top" ng-repeat="card in players.qcards">
-				<h3>{{card.text}}</h3>
+			<section id="question" class="top">
+				<h3>{{card.question}}</h3>
 			</section>
 		</li>
 	</ul>
@@ -11,9 +11,9 @@
 
 <div class="buttons">
 
-<p><span ng-click="players.playCard($index)" class="fa fa-thumbs-up thumbs"></span></p>
+<p><span ng-click="players.funny()" class="fa fa-thumbs-up thumbs"></span></p>
 
-<p><span ng-click="players.playCard($index)" class="fa fa-thumbs-down thumbs"></span></p>
+<p><span ng-click="players.notFunny()" class="fa fa-thumbs-down thumbs"></span></p>
 
 </div>
 
@@ -21,7 +21,7 @@
 		<div id="ansWrap">
 			<ul id="answerCards" class="bottom img-fulid">
 
-				<li ng-repeat="card in players.acards" id="{{$index}}">{{card.text}} 
+				<li id="{{$index}}">{{card.answer}} 
 
 				</li>
 			</ul>

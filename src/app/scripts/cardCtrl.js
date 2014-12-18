@@ -20,7 +20,7 @@ angular.module('cardistry.cards', [])
               }
             }
           } else {
-            {
+            if(cards[i].cardType === "Q" && cards[i].numAnswers === 1){
               service.cards.black[cards[i].id] = {
                 text: cards[i].text,
                 priority: 0,

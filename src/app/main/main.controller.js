@@ -32,21 +32,15 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 })
 
 	.controller('PlayerCtrl', function($filter, $scope, Auth, Deck2, FirebaseUrl, $firebase){
-    var self = this;
-
-  	Auth.onAuth(function(user){
+  	var self = this;
+    Auth.onAuth(function(user){
       self.user = user;
     });
-
     var cardCzar = FirebaseUrl.child('cardCzar')
-
     var sync = $firebase(cardCzar)
-
     this.hand = self.user.hand
     this.cardIndex = 0;
     this.chosenCard = sync.$asArray();
-
-    console.log(this.chosenCard)
 
     this.next = function(){
       if(self.cardIndex >= self.user.hand.length - 1) {
@@ -75,7 +69,14 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
       self.user.deck.black.splice(0, 1)
       self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, 1))
       self.user.$save()
-      console.log(this.chosenCard)
+    }
+
+    this.funny = function(){
+      // gives points to user that submits the combo
+    }
+
+    this.notFunny = function(){
+      //removes this card combo and serves up the next pair
     }
 })
 
