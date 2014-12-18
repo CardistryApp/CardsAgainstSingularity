@@ -7,31 +7,31 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     }
   })
 
-  .controller('MainCtrl', function ($scope, $firebase, Auth, $filter, Deck2) {
+  .controller('MainCtrl', function ($scope, $firebase, Auth, $filter, Deck) {
   	var self = this;
 
-    console.log(Deck2.load().then(Deck2.shuffle))
+    console.log(Deck.load().then(Deck.shuffle))
 
   	Auth.onAuth(function(user){
       self.user = user;
     });
 
   	this.dealIn = function(){
-      Deck2.load().then(Deck2.shuffle).then(function(deck){
+      Deck.load().then(Deck.shuffle).then(function(deck){
         self.user.deck = deck
-  		  self.user.hand = Deck2.nextWhite(self.user.deck.white, 10)
+  		  self.user.hand = Deck.nextWhite(self.user.deck.white, 10)
   		  self.user.$save()
       })
   	}
 
     this.getCard = function(num){
       console.log(self.user.hand)
-      self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, num))
+      self.user.hand = self.user.hand.concat(Deck.nextWhite(this.user.deck.white, num))
       self.user.$save()
     }
 })
 
-	.controller('PlayerCtrl', function($filter, $scope, Auth, Deck2, FirebaseUrl, $firebase){
+	.controller('PlayerCtrl', function($filter, $scope, Auth, Deck, FirebaseUrl, $firebase){
   	var self = this;
     Auth.onAuth(function(user){
       self.user = user;
@@ -67,7 +67,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
       var index = self.user.hand.indexOf(card)
       self.user.hand.splice(index, 1)
       self.user.deck.black.splice(0, 1)
-      self.user.hand = self.user.hand.concat(Deck2.nextWhite(this.user.deck.white, 1))
+      self.user.hand = self.user.hand.concat(Deck.nextWhite(this.user.deck.white, 1))
       self.user.$save()
     }
 
@@ -80,7 +80,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     }
 })
 
-	.controller('loginPageCtrl', function(Auth, $scope, $firebase, $filter, Deck){
+	.controller('loginPageCtrl', function(Auth){
  
     this.logIn = Auth.logIn;
  
@@ -91,7 +91,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
     return new Firebase(CONFIG.Firebase.baseUrl);
  	 })
 
-  .factory('Auth', function (FirebaseUrl, $firebaseAuth, $firebase, $filter, Deck){
+  .factory('Auth', function (FirebaseUrl, $firebaseAuth, $firebase, $filter){
  
     var auth = $firebaseAuth(FirebaseUrl);
  
