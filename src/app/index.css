@@ -3,15 +3,6 @@
   padding: 0;
 }
 
-.container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  
-}
-
 #answerCards li {
  
   color: black;
@@ -205,12 +196,18 @@ ul li, p{
 #answerCards{
 
 overflow: hidden;
+height: 50vh;
 
 }
 
 
 #player {
-  height: 100vh;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 #scoreboard li {
@@ -327,5 +324,10 @@ font-size: 41px;
 position: absolute;
 top: 297px;
 right: 38px;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
 }
 

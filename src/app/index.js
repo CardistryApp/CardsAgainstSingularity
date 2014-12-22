@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistry.main'])
+angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistry.main', 'angular-gestures'])
 
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
