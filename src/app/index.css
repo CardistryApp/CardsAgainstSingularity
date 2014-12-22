@@ -132,25 +132,25 @@ ul li, p{
 }
 
 #accountInfo {
-  height: 48vh;
+  height: 50vh;
 }
 
 .bottom-left {
-  width: 50%;
+  width: 49%;
   background-color: black;
   color: white;
   font-size: 27pt;
-  padding-bottom: 55px;
+  height: 100%;
 }
 
 .bottom-right {
-  font-size: 25pt
-  width: 50%;
-  padding-bottom: 55px;
+  font-size: 25pt;
+  width: 49%;
 }
 
 #gameChoices {
   border-top: black 3px solid;
+  height: 50vh;
 }
 
 #gameChoices li {
@@ -166,7 +166,7 @@ ul li, p{
   width: 100%;
   margin: auto;
   text-align: center;
-  padding-bottom: 6ex;
+  padding-bottom: 5ex;
   font-weight: bold;
 }
 
@@ -195,7 +195,7 @@ ul li, p{
 
 #answerCards{
 
-overflow: hidden;
+overflow: scroll;
 height: 50vh;
 
 }
@@ -331,3 +331,44 @@ right: 38px;
   width: 100%;
 }
 
+#prev, #next {
+  height: 50vh;
+  width: 46vw;
+  margin-top: -111px;
+}
+
+#prev {
+  float: left;
+}
+
+#next {
+  float: right;
+}
+
+#playCard {
+  position: absolute;
+  top: 0;
+  width: 95%;
+  height: 50vh;
+}
+
+#pBack {
+  display: block;
+  margin-top: -40px;
+}
+
+@media screen and (orientation:landscape) {
+  #scoreboard{
+    margin-top: -80px;
+  }
+  #cardCzar a, #playerSelect a {
+    padding-top: 3ex;
+    padding-bottom: 3ex;
+  }
+  #answerCards li {
+    padding-bottom: 40px;
+  }
+  #prev, #next {
+    margin-top: -149px;
+  }
+}
