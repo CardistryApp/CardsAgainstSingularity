@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cardistry.main', ['cardistry.cards','firebase'])
+angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gestures'])
 	.constant('CONFIG', {
     Firebase: {
       baseUrl: 'https://cardistry.firebaseio.com/gameDB'
@@ -9,7 +9,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase'])
 
   .controller('MainCtrl', function ($firebase, Auth, $filter, Deck) {
   	var self = this;
-
+    
   	Auth.onAuth(function(user){
       self.user = user;
     });
