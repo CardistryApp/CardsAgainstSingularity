@@ -69,7 +69,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
         this.cardIndex--;
       }
     };
-
+    
     this.playCard = function(card, question){
       self.chosenCard.$add({
               question: self.user.deck.black[0].text,

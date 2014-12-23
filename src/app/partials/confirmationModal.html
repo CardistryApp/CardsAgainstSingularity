@@ -1,0 +1,21 @@
+<div id="modal" ng-controller="PlayerCtrl as players">
+	<script type="text/ng-template">
+        <div class="modal-header">
+            <h3 class="modal-title">Play This Card?</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="question in players.user.deck.black">
+                    {{question.text}}
+                </li>
+                <li ng-repeat="card in players.user.hand" ng-show="players.cardIndex == $index">
+                    {{card.text}}
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="players.PlayCard()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>

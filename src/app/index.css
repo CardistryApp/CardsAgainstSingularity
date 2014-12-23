@@ -347,6 +347,8 @@ right: 38px;
 #pBack {
   display: block;
   margin-top: -40px;
+  position: absolute;
+  width: 100%;
 }
 
 #controls{
