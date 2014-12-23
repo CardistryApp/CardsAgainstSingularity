@@ -10,12 +10,13 @@
 	<h3 id="answer">
 		<div id="ansWrap">
 			<ul id="answerCards" class="bottom img-fulid">
+				<div id="controls">
+						<div id="prev" hm-tap="players.prev()"></div>
+						<div id="next" hm-tap="players.next()"></div>	
+				</div>
 				<li ng-repeat="card in players.user.hand"
 					ng-show="players.cardIndex == $index">{{card.text}}
 					<div id="playCard" hm-tap="players.playCard(card)"></div> 
-					<div id="clear"></div>
-					<div id="prev" hm-tap="players.prev()"></div>
-					<div id="next" hm-tap="players.next()"></div>	
 				</li>
 			</ul>
 			<span class="back" id="pBack"><a ui-sref="home">Back</a></span>

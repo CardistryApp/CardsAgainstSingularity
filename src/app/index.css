@@ -332,17 +332,9 @@ right: 38px;
 }
 
 #prev, #next {
-  height: 50vh;
-  width: 46vw;
-  margin-top: -111px;
-}
-
-#prev {
-  float: left;
-}
-
-#next {
-  float: right;
+  height: 100%;
+  width: 48%;
+  display: inline-block;
 }
 
 #playCard {
@@ -355,6 +347,12 @@ right: 38px;
 #pBack {
   display: block;
   margin-top: -40px;
+}
+
+#controls{
+  width: 100%;
+  height: 43vh;
+  position: fixed;
 }
 
 @media screen and (orientation:landscape) {
