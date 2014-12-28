@@ -1,46 +1,33 @@
 'use strict';
 
-angular.module('cardistry', ['ngCookies', 'ngTouch', 'ui.router', 'firebase',
-	'cardistry.cards','cardistry.players','cardistry.game','cardistry.main'
-	])
+angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistry.main', 'angular-gestures'])
+
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('lobby', {
-        url: '/lobby',
-        templateUrl: "app/partials/lobby.html",
-        controller: 'MainCtrl'
+      .state('login', {
+        url: '/',
+        templateUrl: "app/partials/login.html",
+        controller: "loginPageCtrl as login"
       })
-      .state('lobby.players', {
-      	url: '/players',
-      	templateUrl: "app/partials/lobby-players.html",
-      	controller: 'MainCtrl'
-      })
-      .state('lobby.rules', {
-      	url: '/rules',
-      	templateUrl: "app/partials/lobby-rules.html",
-      	controller: 'MainCtrl'
-      })
-      .state('lobby.invite', {
-      	url: '/invite',
-      	templateUrl: "app/partials/lobby-invite.html",
-      	controller: 'MainCtrl'
+      .state('home', {
+        url: '/home',
+        templateUrl: "app/partials/home.html",
+        controller: "MainCtrl as app"
       })
       .state('player', {
-      	url: '/player',
-      	templateUrl: 'app/partials/player.html',
-      	controller: 'GameCtrl as game'
+        url: '/player',
+        templateUrl: "app/partials/player.html",
+        controller: "PlayerCtrl as players"
       })
-      .state('id', {
-      	url: '/player/:id',
-      	templateUrl: 'app/partials/player-cards.html',
-      	controller: 'GameCtrl as players'
+      .state('czar', {
+        url: '/czar',
+        templateUrl: "app/partials/czar.html",
+        controller: "PlayerCtrl as players"
       })
-      .state('board', {
-      	url:'/board',
-      	templateUrl: 'app/partials/board.html',
-      	controller: 'MainCtrl'
+      .state('about', {
+        url: '/about',
+        templateUrl: "app/partials/about.html"
       })
+    $urlRouterProvider.otherwise('/');
+  });
 
-    $urlRouterProvider.otherwise('/lobby');
-  })
-;
