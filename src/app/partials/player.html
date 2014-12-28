@@ -7,12 +7,12 @@
 		</li>
 	</ul>
 
-	<h3 id="answer">
-		<div id="ansWrap">
-			<ul id="answerCards" class="bottom img-fulid">
-				<div id="controls">
-						<div id="prev" hm-tap="players.prev()"></div>
-						<div id="next" hm-tap="players.next()"></div>	
+	<h3 class="answer">
+		<div class="ansWrap">
+			<ul class="bottom img-fulid answerCards">
+				<div class="controls">
+						<div class="prev" hm-tap="players.prev()"></div>
+						<div class="next" hm-tap="players.next()"></div>	
 				</div>
 				<li ng-repeat="card in players.user.hand"
 					ng-show="players.cardIndex == $index">{{card.text}}
