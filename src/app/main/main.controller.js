@@ -51,7 +51,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
     this.cardIndex = 0;
     this.chosenCard = sync.$asArray();
     this.playersObj = psync.$asObject();
-
+    
     console.log(this.playersObj)
 
     this.next = function(){
@@ -61,6 +61,12 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
         this.cardIndex++;
       }
     };
+
+    this.czarIndex = 0
+
+    self.chosenCard.$loaded().then(function(){
+      self.czarIndex = self.chosenCard.length - 1;
+    })
 
     this.prev = function(){
       if(self.cardIndex <= 0) {
@@ -74,7 +80,8 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       self.chosenCard.$add({
               question: self.user.deck.black[0].text,
               answer: card.text,
-              user: self.user.$id
+              user: self.user.$id,
+              priority: self.chosenCard.length + 1
             })
       var index = self.user.hand.indexOf(card)
       self.user.hand.splice(index, 1)
@@ -88,12 +95,12 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       this.playersObj[playerId].dailyScore++
       this.playersObj.$save()
       // skips to next card
-      this.next();
+      self.czarIndex--;
     }
 
     this.notFunny = function(){
       //removes this card combo and serves up the next pair
-      this.next();
+      self.czarIndex--;
     }
   })
 
