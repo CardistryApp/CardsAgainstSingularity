@@ -50,6 +50,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
     this.hand = self.user.hand
     this.cardIndex = 0;
     this.chosenCard = sync.$asArray();
+    this.chosenCardObj = sync.$asObject();
     this.playersObj = psync.$asObject();
     
     console.log(this.playersObj)
@@ -81,7 +82,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
               question: self.user.deck.black[0].text,
               answer: card.text,
               user: self.user.$id,
-              priority: self.chosenCard.length + 1
+              points: 0
             })
       var index = self.user.hand.indexOf(card)
       self.user.hand.splice(index, 1)
@@ -90,10 +91,12 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       self.user.$save()
     }
 
-    this.funny = function(playerId){
+    this.funny = function(playerId, $index){
       // gives points to user that submits the combo
+      this.chosenCardObj[this.chosenCard[$index].$id].points++
+      this.chosenCardObj.$save()
       this.playersObj[playerId].dailyScore++
-      this.playersObj.$save()
+      this.playersObj.$save();
       // skips to next card
       self.czarIndex--;
     }
