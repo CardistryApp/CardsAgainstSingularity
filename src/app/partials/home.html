@@ -1,7 +1,7 @@
 <div class="account">
 	<section id="accountInfo">
 		<img id="profilePic" src="{{app.user.avatarUrl}}"/>
-		<span id="greeting">Yo, Ari</span>
+		<span id="greeting">Yo, {{app.user.firstName}}</span>
 		<button ng-show="app.user.hand.length !== 10" id="deal" ng-click="app.dealIn()">Deal Me In!</button>
 	<ul id="scoreboard">
 		<li>Daily Score: {{app.user.dailyScore}}</li>
