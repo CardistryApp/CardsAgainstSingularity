@@ -1,0 +1,16 @@
+<div class="account">
+	<section id="accountInfo">
+		<img id="profilePic" src="{{app.user.avatarUrl}}"/>
+		<span id="greeting">Yo, Ari</span>
+		<button ng-show="app.user.hand.length !== 10" id="deal" ng-click="app.dealIn()">Deal Me In!</button>
+	<ul id="scoreboard">
+		<li>Daily Score: {{app.user.dailyScore}}</li>
+		<li>Weekly Score: {{app.user.weeklyScore}}</li>
+		<li>Total Score: {{app.user.totalScore}}</li>
+	</section>
+	<ul id="gameChoices">
+		<li class="bottom-left" id="cardCzar"><a ui-sref="czar">CZAR</a></li>
+		<li class="bottom-right" id="playerSelect"><a ui-sref="player">PLAYER</a></li>
+	</ul>
+	</section>
+</div>

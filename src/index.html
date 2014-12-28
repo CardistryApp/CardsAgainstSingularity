@@ -2,27 +2,31 @@
 <html class="no-js" ng-app="cardistry">
   <head>
     <meta charset="utf-8">
-    <title>Cardistry App</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Cards Against Singularity</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp,src}) styles/vendor.css -->
-    <link rel="stylesheet" href="app/vendor.css">
 
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css({.tmp,src}) styles/app.css -->
+    <link rel="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/index.css">
+    <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- endbuild -->
 
     <!-- build:js scripts/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body ng-controller="MainCtrl as app">
+  <body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -48,8 +52,10 @@
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="../bower_components/firebase/firebase.js"></script>
     <script src="../bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="../bower_components/jquery-cookie/jquery.cookie.js"></script>
     <script src="../bower_components/angular-gestures/gestures.min.js"></script>
-    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/hammerjs/hammer.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -57,8 +63,6 @@
     <script src="app/index.js"></script>
     <script src="app/main/main.controller.js"></script>
     <script src="app/scripts/cardCtrl.js"></script>
-    <script src="app/scripts/playerCtrl.js"></script>
-    <script src="app/scripts/gameService.js"></script>
     <!-- inject:partials -->
     <!-- angular templates will be automaticaly converted in js and inserted here -->
     <!-- endinject -->
