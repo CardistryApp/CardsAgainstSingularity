@@ -1,4 +1,4 @@
-Cardistry
+Cards Against Singularity
 =========
 
-### Coming Soon!
+### Because Who Says You Need Friends? Coming Soon!

@@ -1,0 +1,174 @@
+@media (min-width: 1200px){
+
+body {
+	margin-left: 5%;
+	padding-top: 5%;
+}
+
+ul {
+
+	list-style-type: none;
+}
+
+.logo {
+	border: 2px solid black;
+	background-color: black;
+	padding-left:0px;
+	margin-left: 0;
+}
+.tagline {
+	color: #602F8D;
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 3em;
+	text-align: center;
+	margin-top: 25px;
+}
+
+/* footer styling for all resolutions */
+
+.siteinfo {
+	text-align: center;
+	padding: 3em 0;
+	border-top: 1px solid #ddd;
+}
+.siteinfo a {
+	text-decoration: none;
+	color: #999;
+	font-size: 0.8em;
+}
+.siteinfo a:hover {
+	color: #602F8D;
+	text-decoration: underline;
+}
+
+/* styling thumbnails and modals */
+
+	.btn{ 
+		background-color: black;
+    color:white;
+    margin-left: 16px;
+    width: 100%;
+
+}  
+	
+} 
+.modal-body .pull-left { 
+    padding-right: 1em; 
+} 
+.modal-body .pull-right { 
+    padding-left: 1em; 
+} 
+.modal-footer { 
+    clear: both; 
+} 
+
+/* panel styling for the home page */
+
+.panel-primary .panel-heading {
+	background-color: #602F8D;
+	border-color: #602F8D;
+}
+.panel {
+	border-color: #602F8D;
+}
+
+.hero {
+
+	background-color: black;
+	margin-top: -70px;
+	width: 1500px;
+	height: 230px;
+	margin-left: -185px;
+	color: white;
+}
+
+.hero p {
+
+	font-family: 'Hammersmith One', sans-serif;
+	padding-top: 5%;
+	padding-left: 17%;
+	font-size: 500%;
+
+
+}
+
+.co {
+
+	margin-top: -38px;
+	padding-left: 481px;
+	color: white;
+
+}
+
+.intro span {
+
+	font-weight: bold;
+
+}
+
+.intro p {
+
+	font-size: 20px;
+}
+
+.rules p {
+
+font-size: 20px;
+
+}
+
+.stack {
+
+	padding-left: 30%;
+	color: #602F8D;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.rules {
+
+	background-color: black;
+	color: white;
+	padding-top: 2px;
+	padding-bottom: 20px;
+	margin-left: -80px;
+	padding-left: 80px;
+}
+
+ol {
+
+	font-size: 20px;
+}
+
+img {
+
+	border-radius: 6%;
+}
+
+.dev2{
+
+margin-left: 65%;
+margin-top: -24%;
+}
+
+#start {
+
+	background-color: black;
+	margin-left: -80px;
+
+}
+
+
+}
+
+@media (min-width: 992px){
+
+
+
+
+
+
+
+
+
