@@ -7,7 +7,7 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
     }
   })
 
-  .controller('MainCtrl', function ($firebase, Auth, $filter, Deck) {
+  .controller('MainCtrl', function ($firebase, Auth, $filter, Deck, $modal, $scope) {
   	var self = this;
     
   	Auth.onAuth(function(user){
@@ -24,13 +24,13 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       $('#intro').hide();
       $('#slide2').toggle();
     } 
-
   	this.dealIn = function(){
       Deck.load().then(Deck.shuffle).then(function(deck){
         self.user.deck = deck
   		  self.user.hand = Deck.nextWhite(self.user.deck.white, 10)
         self.scoreSet();
   		  self.user.$save()
+        $scope.$close()
       })
   	}
 
