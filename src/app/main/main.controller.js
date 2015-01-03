@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gestures'])
+angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gestures', 'ui.bootstrap'])
 	.constant('CONFIG', {
     Firebase: {
       baseUrl: 'https://cardistry.firebaseio.com/gameDB'
@@ -19,6 +19,11 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       self.user.weeklyScore = 0;
       self.user.totalScore = 0
     }
+
+    this.nextSlide = function(){
+      $('#intro').hide();
+      $('#slide2').toggle();
+    } 
 
   	this.dealIn = function(){
       Deck.load().then(Deck.shuffle).then(function(deck){

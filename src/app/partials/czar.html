@@ -8,10 +8,6 @@
 	</ul>
 
 <div class="controls">
-	<div class="buttons">
-		<p><span class="fa fa-thumbs-up thumbs"></span></p>
-		<p><span class="fa fa-thumbs-down thumbs"></span></p>
-	</div>
 	<div class="prev" hm-tap="players.notFunny()"></div>
 	<div class="next" hm-tap="players.funny(card.user, $index)"></div>	
 </div>
@@ -20,7 +16,7 @@
 	<h3 class="answer">
 		<div class="ansWrap">
 			<ul class="bottom img-fulid answerCards" id="czarAnswer">
-				<li id="{{$index}}">{{card.answer}} 
+				<li id="{{$index}}"><h3>{{card.answer}}</h3>
 				</li>
 			</ul>
 		</div>

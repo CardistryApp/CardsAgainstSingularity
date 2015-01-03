@@ -1,0 +1,16 @@
+<div id="modal" ng-controller="MainCtrl as app">
+        <div class="modal-header">
+            <h3 class="modal-title">Yo, {{app.user.firstName}}!</h3>
+        </div>
+        <div class="modal-body">
+            <section id="intro">
+                <p>Welcome to Cards Against Singularity! Thanks for checking it out!</p>
+            </section>
+            <section id="slide2" hidden>
+                <p>Here's some more rules</p>
+            </section>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" ng-click="app.nextSlide()">Next!</button>
+        </div>
+</div>

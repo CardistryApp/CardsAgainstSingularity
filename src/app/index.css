@@ -1,6 +1,15 @@
-*{
+* {
   margin: 0;
   padding: 0;
+}
+
+#question h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  margin-bottom: 0;
 }
 
 .answerCards li {
@@ -76,7 +85,7 @@ ul {
   color: white;
   padding-bottom: 22px;
   padding-top: 7px;
-  height: 15px;
+  height: 4.5%
 }
 
 .back a{
@@ -151,6 +160,7 @@ ul li, p{
 #gameChoices {
   border-top: black 3px solid;
   height: 50vh;
+  margin-bottom: 0;
 }
 
 #gameChoices li {
@@ -197,6 +207,7 @@ ul li, p{
 
 overflow: scroll;
 height: 50vh;
+margin-bottom: 0;
 
 }
 
@@ -329,6 +340,8 @@ right: 38px;
 .container {
   position: fixed;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .prev, .next {
@@ -371,4 +384,13 @@ right: 38px;
   .prev, .next {
     margin-top: -149px;
   }
+}
+
+#modal-title {
+  text-align: center
+}
+
+#czarAnswer li h3 {
+  margin-top: 0;
+  margin-bottom: 0;
 }

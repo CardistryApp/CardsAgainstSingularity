@@ -12,7 +12,25 @@ angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistr
       .state('home', {
         url: '/home',
         templateUrl: "app/partials/home.html",
-        controller: "MainCtrl as app"
+        controller: "MainCtrl as app",
+        onEnter: function(Auth, $modal){
+          this.user = ''
+          var self = this
+          //loading the user to check whether they have the correct number of cards
+          Auth.onAuth(function(user){
+            self.user = user;
+          })
+          self.user.$loaded().then(function(){
+            if(self.user.hand == null || self.user.hand.length < 10){
+              //Put modal code here
+              console.log($modal)
+              $modal.open({
+                templateUrl: 'app/partials/rules.html',
+                backdrop: 'true'
+              })
+            }
+          })
+        }
       })
       .state('player', {
         url: '/player',
