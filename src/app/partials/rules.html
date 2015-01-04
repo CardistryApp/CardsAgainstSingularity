@@ -26,8 +26,8 @@
             </section>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-default" ng-click="app.prevSlide()" ng-hide='app.selection === "slide1"'>Back!</button>
+            <button class="btn btn-default" ng-click="app.prevSlide()" ng-hide='app.slideIndex === 0'>Back!</button>
             <button class="btn btn-default" id="deal" ng-click="app.newPlayer()">Deal Me In!</button>
-            <button class="btn btn-default" ng-click="app.nextSlide()" ng-hide='app.selection === "slide7"'>Next!</button>
+            <button class="btn btn-default" ng-click="app.nextSlide()" ng-hide='app.slideIndex === 6'>Next!</button>
         </div>
 </div>
