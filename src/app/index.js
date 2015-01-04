@@ -26,7 +26,7 @@ angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistr
               console.log($modal)
               $modal.open({
                 templateUrl: 'app/partials/rules.html',
-                backdrop: 'true'
+                backdrop: 'static'
               })
             }
           })

@@ -20,10 +20,20 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       self.user.totalScore = 0
     }
 
+    this.slides = ['slide1', 'slide2', 'slide3', 'slide4', 
+                  'slide5', 'slide6', 'slide7']
+    this.slideIndex = 0;
+    this.selection = this.slides[this.slideIndex]
     this.nextSlide = function(){
-      $('#intro').hide();
-      $('#slide2').toggle();
+      this.slideIndex++
+      this.selection = this.slides[this.slideIndex]
     } 
+    this.prevSlide = function(){
+      this.slideIndex--
+      this.selection = this.slides[this.slideIndex]
+    } 
+
+
   	this.dealIn = function(){
       Deck.load().then(Deck.shuffle).then(function(deck){
         self.user.deck = deck

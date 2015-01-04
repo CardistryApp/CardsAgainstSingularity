@@ -21,6 +21,12 @@ ul {
 
 }
 
+h3.answer {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.17em;
+}
+
 .answerCards li:nth-child(1){
 
   display: block;
@@ -62,8 +68,6 @@ padding: 14px;
   padding: 15px;
 }
 
-
-
 body {
   font-family: sans-serif;
 }
@@ -83,7 +87,7 @@ ul {
   margin-top: 8px;
   background-color: black;
   color: white;
-  padding-bottom: 22px;
+  padding-bottom: 25px;
   padding-top: 7px;
   height: 4.5%
 }
@@ -370,7 +374,7 @@ right: 38px;
 
 #pBack {
   display: block;
-  margin-top: -40px;
+  margin-top: -3ex;
   position: absolute;
   width: 100%;
 }
@@ -390,8 +394,13 @@ right: 38px;
   margin-bottom: 0;
 }
 
+.slides p {
+  font-size: 14pt;
+}
 
-
+.modal-footer {
+  margin-top: 0;
+}
 
 @media screen and (orientation:landscape) {
   #scoreboard{
