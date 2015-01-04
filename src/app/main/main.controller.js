@@ -42,9 +42,27 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       })
   	}
 
+    this.closeModal = function(){
+      $scope.$close();
+    }
+
+    this.playTutNo = function(){
+      self.user.playerTutorial = true;
+      self.user.$save();
+      this.closeModal();
+    }
+
+    this.czarTutNo = function(){
+      self.user.czarTutorial = true;
+      self.user.$save();
+      this.closeModal();
+    }
+
     this.newPlayer = function(){
       this.dealIn();
       this.scoreSet();
+      self.user.playerTutorial = false;
+      self.user.czarTutorial = false;
       $scope.$close();
     }
 

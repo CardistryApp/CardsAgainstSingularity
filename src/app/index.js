@@ -35,12 +35,48 @@ angular.module('cardistry', ['ui.router', 'firebase','cardistry.cards','cardistr
       .state('player', {
         url: '/player',
         templateUrl: "app/partials/player.html",
-        controller: "PlayerCtrl as players"
+        controller: "PlayerCtrl as players",
+        onEnter: function(Auth, $modal){
+          this.user = ''
+          var self = this
+          //loading the user to check whether they have the correct number of cards
+          Auth.onAuth(function(user){
+            self.user = user;
+          })
+          self.user.$loaded().then(function(){
+            if(self.user.playerTutorial == false){
+              //Put modal code here
+              console.log($modal)
+              $modal.open({
+                templateUrl: 'app/partials/playerTutorial.html',
+                backdrop: 'static'
+              })
+            }
+          })
+        }
       })
       .state('czar', {
         url: '/czar',
         templateUrl: "app/partials/czar.html",
-        controller: "PlayerCtrl as players"
+        controller: "PlayerCtrl as players",
+        onEnter: function(Auth, $modal){
+          this.user = ''
+          var self = this
+          //loading the user to check whether they have the correct number of cards
+          Auth.onAuth(function(user){
+            self.user = user;
+          })
+          self.user.$loaded().then(function(){
+            if(self.user.czarTutorial == false){
+              //Put modal code here
+              console.log($modal)
+              $modal.open({
+                templateUrl: 'app/partials/czarTutorial.html',
+                backdrop: 'static'
+              })
+            }
+          })
+        }
       })
       .state('about', {
         url: '/about',

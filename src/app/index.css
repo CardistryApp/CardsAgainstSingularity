@@ -15,7 +15,7 @@ ul {
 .answerCards li {
  
   color: black;
-  font-size: 24pt;
+  font-size: 21pt;
   list-style-type: none;
   padding-left: 11px;
 
@@ -27,6 +27,9 @@ h3.answer {
   font-size: 1.17em;
 }
 
+.answerCards li h3 {
+  font-size: 21pt;
+}
 .answerCards li:nth-child(1){
 
   display: block;
@@ -84,10 +87,9 @@ ul {
 
 .back {
   text-align: center;
-  margin-top: 8px;
   background-color: black;
   color: white;
-  padding-bottom: 25px;
+  padding-bottom: 5ex;
   padding-top: 7px;
   height: 4.5%
 }
@@ -96,6 +98,7 @@ ul {
   color: white;
   text-decoration: none;
   padding: 6px 130px;
+  font-size: 15pt;
 }
 
 .thumbnail {
@@ -124,7 +127,7 @@ ul li, p{
 }
 
 .top {
-  height: 48vh;
+  height: 42vh;
   background-color: black;
   color: white; 
 }
@@ -211,7 +214,7 @@ ul li, p{
 .answerCards{
 
 overflow: scroll;
-height: 50vh;
+height: 42vh;
 margin-bottom: 0;
 
 }
@@ -301,6 +304,7 @@ h2 {
 #questions h3 {
   padding-top: 15px;
   padding-left: 12px;
+  font-size: 21pt;
 }
 
   .submit {
@@ -374,7 +378,7 @@ right: 38px;
 
 #pBack {
   display: block;
-  margin-top: -3ex;
+  margin-top: -5ex;
   position: absolute;
   width: 100%;
 }
