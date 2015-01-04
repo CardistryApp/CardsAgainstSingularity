@@ -28,11 +28,15 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       Deck.load().then(Deck.shuffle).then(function(deck){
         self.user.deck = deck
   		  self.user.hand = Deck.nextWhite(self.user.deck.white, 10)
-        self.scoreSet();
   		  self.user.$save()
-        $scope.$close()
       })
   	}
+
+    this.newPlayer = function(){
+      this.dealIn();
+      this.scoreSet();
+      $scope.$close();
+    }
 
     this.getCard = function(num){
       console.log(self.user.hand)

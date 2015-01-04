@@ -188,8 +188,8 @@ ul li, p{
 #profilePic {
   width: 100px;
   border-radius: 50%;
-  float: left;
-  padding: 13px;
+  display: block;
+  margin: auto
 }
 
 #greeting {
@@ -197,6 +197,7 @@ ul li, p{
   display: block;
   padding: 10px;
   font-weight: bold;
+  text-align: center;
 }
 
 #confirm {
@@ -221,12 +222,22 @@ margin-bottom: 0;
   right: 0;
 }
 
+#scoreboard {
+  text-align: center;
+}
+
 #scoreboard li {
-  font-size: 17pt;
-  text-align: right;
-  padding-right: 23px;
-  padding-top: 29px;
+  font-size: 13pt;
+  text-align: center;
+  padding-right: 12px;
+  padding-left: 12px;
   font-weight: bold;
+  display: inline-block;
+  width: 25%;
+}
+
+.scoreFont {
+  font-size: 35pt;
 }
 
 .about {
@@ -370,6 +381,18 @@ right: 38px;
   position: fixed;
 }
 
+#modal-title {
+  text-align: center
+}
+
+#czarAnswer li h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+
+
 @media screen and (orientation:landscape) {
   #scoreboard{
     margin-top: -80px;
@@ -384,13 +407,4 @@ right: 38px;
   .prev, .next {
     margin-top: -149px;
   }
-}
-
-#modal-title {
-  text-align: center
-}
-
-#czarAnswer li h3 {
-  margin-top: 0;
-  margin-bottom: 0;
 }
