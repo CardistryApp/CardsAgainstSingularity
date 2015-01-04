@@ -1,0 +1,33 @@
+<div id="modal" ng-controller="MainCtrl as app">
+        <div class="modal-header">
+            <h3 class="modal-title">Welcome to Cards Against Singularity!</h3>
+        </div>
+        <div class="modal-body" ng-switch on="app.selection">
+            <section class="slides" ng-switch-when="slide1">
+                <p>A single player adaptation of everyone's favorite raunchy card game.<br><br>If you've never played before, just think mad-libs with a foul mouth!</p>
+            </section>
+            <section class="slides" ng-switch-when="slide2">
+                <p>There are two modes of play in Cards Against Singularity: Player and Czar</p>
+            </section>
+            <section class="slides" ng-switch-when="slide3">
+                <p>In Player Mode, you have 10 white 'answer' cards in your hand<br><br>Cycle through the cards and find the best answer to fill in the blank!</p>
+            </section>
+            <section class="slides" ng-switch-when="slide4">
+                <p>Select your favorite answer and that Question/Answer combo is removed from your hand and submitted to the Czar pool<br><br>You are given another question card and a new answer card for your hand!</p>
+            </section>
+            <section class="slides" ng-switch-when="slide5">
+                <p>In Czar mode, you hold the power to pad someone's ego or crush their spirits! (some results may vary)</p>
+            </section>
+            <section class="slides" ng-switch-when="slide6">
+                <p>As Czar, you work your way through the pool of user submitted cards.<br><br>If you find it funny, give the user that submitted it a point<br><br>Not so funny? Deny the point and imagine their sad faces!</p>
+            </section>
+            <section class="slides" ng-switch-when="slide7">
+                <p>So that's pretty much it! Press "Deal Me In" below to get your hand and remember: <br><br>Laughing at this game doesn't make you a horrible person... all the other stuff you do, however, is questionable</p>
+            </section>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" ng-click="app.prevSlide()" ng-hide='app.selection === "slide1"'>Back!</button>
+            <button class="btn btn-default" id="deal" ng-click="app.newPlayer()">Deal Me In!</button>
+            <button class="btn btn-default" ng-click="app.nextSlide()" ng-hide='app.selection === "slide7"'>Next!</button>
+        </div>
+</div>
