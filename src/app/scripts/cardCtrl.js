@@ -5,7 +5,7 @@ angular.module('cardistry.cards', [])
   .factory('Deck', function($http){
     var service = {
       load: function(){
-        return $http.get('/assets/data/cards.JSON').then(function(deck){
+        return $http.get('assets/data/cards.JSON').then(function(deck){
           service.cards = {};
           service.cards.white = []
           service.cards.black = []

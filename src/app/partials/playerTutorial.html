@@ -1,0 +1,14 @@
+<div id="modal" ng-controller="MainCtrl as app">
+        <div class="modal-header">
+            <h3 class="modal-title">Player Mode</h3>
+        </div>
+        <div class="modal-body" ng-switch on="app.selection">
+            <section class="slides" ng-switch-when="slide1">
+                <p><b>Viewing your Cards:</b><br>Tap the right half of the white answer card to cycle to the right, and the left half to cycle to the left<br><br><b>To Submit an Answer:</b><br>Tap the black question card</p>
+            </section>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" id="deal" ng-click="app.closeModal()">Remind Me Later</button>
+            <button class="btn btn-default" ng-click="app.playTutNo()" ng-hide='app.selection === "slide7"'>Got It!</button>
+        </div>
+</div>

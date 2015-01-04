@@ -1,17 +1,35 @@
-*{
+* {
   margin: 0;
   padding: 0;
+}
+
+#question h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  margin-bottom: 0;
 }
 
 .answerCards li {
  
   color: black;
-  font-size: 24pt;
+  font-size: 21pt;
   list-style-type: none;
   padding-left: 11px;
 
 }
 
+h3.answer {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.17em;
+}
+
+.answerCards li h3 {
+  font-size: 21pt;
+}
 .answerCards li:nth-child(1){
 
   display: block;
@@ -53,8 +71,6 @@ padding: 14px;
   padding: 15px;
 }
 
-
-
 body {
   font-family: sans-serif;
 }
@@ -71,18 +87,18 @@ ul {
 
 .back {
   text-align: center;
-  margin-top: 8px;
   background-color: black;
   color: white;
-  padding-bottom: 22px;
+  padding-bottom: 5ex;
   padding-top: 7px;
-  height: 15px;
+  height: 4.5%
 }
 
 .back a{
   color: white;
   text-decoration: none;
   padding: 6px 130px;
+  font-size: 15pt;
 }
 
 .thumbnail {
@@ -111,7 +127,7 @@ ul li, p{
 }
 
 .top {
-  height: 48vh;
+  height: 42vh;
   background-color: black;
   color: white; 
 }
@@ -151,6 +167,7 @@ ul li, p{
 #gameChoices {
   border-top: black 3px solid;
   height: 50vh;
+  margin-bottom: 0;
 }
 
 #gameChoices li {
@@ -178,8 +195,8 @@ ul li, p{
 #profilePic {
   width: 100px;
   border-radius: 50%;
-  float: left;
-  padding: 13px;
+  display: block;
+  margin: auto
 }
 
 #greeting {
@@ -187,6 +204,7 @@ ul li, p{
   display: block;
   padding: 10px;
   font-weight: bold;
+  text-align: center;
 }
 
 #confirm {
@@ -196,7 +214,8 @@ ul li, p{
 .answerCards{
 
 overflow: scroll;
-height: 50vh;
+height: 42vh;
+margin-bottom: 0;
 
 }
 
@@ -210,12 +229,22 @@ height: 50vh;
   right: 0;
 }
 
+#scoreboard {
+  text-align: center;
+}
+
 #scoreboard li {
-  font-size: 17pt;
-  text-align: right;
-  padding-right: 23px;
-  padding-top: 29px;
+  font-size: 13pt;
+  text-align: center;
+  padding-right: 12px;
+  padding-left: 12px;
   font-weight: bold;
+  display: inline-block;
+  width: 25%;
+}
+
+.scoreFont {
+  font-size: 35pt;
 }
 
 .about {
@@ -275,6 +304,7 @@ h2 {
 #questions h3 {
   padding-top: 15px;
   padding-left: 12px;
+  font-size: 21pt;
 }
 
   .submit {
@@ -329,6 +359,8 @@ right: 38px;
 .container {
   position: fixed;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .prev, .next {
@@ -346,7 +378,7 @@ right: 38px;
 
 #pBack {
   display: block;
-  margin-top: -40px;
+  margin-top: -5ex;
   position: absolute;
   width: 100%;
 }
@@ -355,6 +387,23 @@ right: 38px;
   width: 100%;
   height: 43vh;
   position: fixed;
+}
+
+#modal-title {
+  text-align: center
+}
+
+#czarAnswer li h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.slides p {
+  font-size: 14pt;
+}
+
+.modal-footer {
+  margin-top: 0;
 }
 
 @media screen and (orientation:landscape) {
