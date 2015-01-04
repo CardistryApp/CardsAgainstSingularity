@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gestures'])
+angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gestures', 'ui.bootstrap'])
 	.constant('CONFIG', {
     Firebase: {
       baseUrl: 'https://cardistry.firebaseio.com/gameDB'
     }
   })
 
-  .controller('MainCtrl', function ($firebase, Auth, $filter, Deck) {
+  .controller('MainCtrl', function ($firebase, Auth, $filter, Deck, $modal, $scope) {
   	var self = this;
     
   	Auth.onAuth(function(user){
@@ -20,14 +20,51 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       self.user.totalScore = 0
     }
 
+    this.slides = ['slide1', 'slide2', 'slide3', 'slide4', 
+                  'slide5', 'slide6', 'slide7']
+    this.slideIndex = 0;
+    this.selection = this.slides[this.slideIndex]
+    this.nextSlide = function(){
+      this.slideIndex++
+      this.selection = this.slides[this.slideIndex]
+    } 
+    this.prevSlide = function(){
+      this.slideIndex--
+      this.selection = this.slides[this.slideIndex]
+    } 
+
+
   	this.dealIn = function(){
       Deck.load().then(Deck.shuffle).then(function(deck){
         self.user.deck = deck
   		  self.user.hand = Deck.nextWhite(self.user.deck.white, 10)
-        self.scoreSet();
   		  self.user.$save()
       })
   	}
+
+    this.closeModal = function(){
+      $scope.$close();
+    }
+
+    this.playTutNo = function(){
+      self.user.playerTutorial = true;
+      self.user.$save();
+      this.closeModal();
+    }
+
+    this.czarTutNo = function(){
+      self.user.czarTutorial = true;
+      self.user.$save();
+      this.closeModal();
+    }
+
+    this.newPlayer = function(){
+      this.dealIn();
+      this.scoreSet();
+      self.user.playerTutorial = false;
+      self.user.czarTutorial = false;
+      $scope.$close();
+    }
 
     this.getCard = function(num){
       console.log(self.user.hand)
