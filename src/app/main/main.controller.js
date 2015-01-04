@@ -20,8 +20,8 @@ angular.module('cardistry.main', ['cardistry.cards','firebase', 'angular-gesture
       self.user.totalScore = 0
     }
 
-    this.slides = ['slide1', 'slide2', 'slide3', 'slide4', 
-                  'slide5', 'slide6', 'slide7']
+    this.slides = ["slide1", "slide2", "slide3", "slide4", 
+                  "slide5", "slide6", "slide7"]
     this.slideIndex = 0;
     this.selection = this.slides[this.slideIndex]
     this.nextSlide = function(){
